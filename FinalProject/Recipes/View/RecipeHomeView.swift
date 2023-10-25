@@ -56,6 +56,8 @@ struct RecipeHomeView: View {
                     
                     //display list, load in recipes based on search query to recipe name, ingredients, cusine, meal type, etc.
                     
+                    RecipeSearchView()
+                    
                 }
                 
                 
