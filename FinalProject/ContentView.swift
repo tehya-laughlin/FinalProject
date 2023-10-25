@@ -9,20 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var appViewModel = AppViewModel()
+  
 
     var body: some View {
       
-        VStack{
-            Button("Load Recipes") {
-                Task{
-                    await appViewModel.getCall()
-                }
+        TabView{
+            PantryView().tabItem{
+                Label("Pantry", systemImage: "globe")
             }
-            Text("\(appViewModel.call.hits.count)")
-                ApiTextCall(appViewModel: appViewModel)
+            RecipeHomeView().tabItem{
+                Label("Recipes", systemImage: "globe")
+            }
+            MealPlanningView().tabItem{
+                Label("Meal Plan", systemImage: "globe")
+            }
+            ShoppingListView().tabItem{
+                Label("Shopping List", systemImage: "globe")
+            }
         }
-       
             
     }
         
