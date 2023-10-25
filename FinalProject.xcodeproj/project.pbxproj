@@ -12,6 +12,9 @@
 		2BBC54FD2AE6CE0E00D3043D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC54FC2AE6CE0E00D3043D /* Item.swift */; };
 		2BBC54FF2AE6CE0F00D3043D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC54FE2AE6CE0F00D3043D /* Assets.xcassets */; };
 		2BBC55022AE6CE0F00D3043D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC55012AE6CE0F00D3043D /* Preview Assets.xcassets */; };
+		2BBC55092AE6D4E200D3043D /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55082AE6D4E200D3043D /* RecipeModel.swift */; };
+		2BBC550B2AE6DE3200D3043D /* ApiTextCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC550A2AE6DE3200D3043D /* ApiTextCall.swift */; };
+		2BBC550D2AE6E4FF00D3043D /* CallBodyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC550C2AE6E4FF00D3043D /* CallBodyViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		2BBC54FC2AE6CE0E00D3043D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		2BBC54FE2AE6CE0F00D3043D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BBC55012AE6CE0F00D3043D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2BBC55082AE6D4E200D3043D /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		2BBC550A2AE6DE3200D3043D /* ApiTextCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTextCall.swift; sourceTree = "<group>"; };
+		2BBC550C2AE6E4FF00D3043D /* CallBodyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallBodyViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +59,18 @@
 		2BBC54F72AE6CE0E00D3043D /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				2BBC55112AE9910C00D3043D /* Shopping */,
+				2BBC55102AE990F600D3043D /* Meal Planning */,
+				2BBC550F2AE990EE00D3043D /* Recipes */,
+				2BBC550E2AE990E100D3043D /* Pantry */,
 				2BBC54F82AE6CE0E00D3043D /* FinalProjectApp.swift */,
 				2BBC54FA2AE6CE0E00D3043D /* ContentView.swift */,
 				2BBC54FC2AE6CE0E00D3043D /* Item.swift */,
+				2BBC550A2AE6DE3200D3043D /* ApiTextCall.swift */,
+				2BBC55082AE6D4E200D3043D /* RecipeModel.swift */,
 				2BBC54FE2AE6CE0F00D3043D /* Assets.xcassets */,
 				2BBC55002AE6CE0F00D3043D /* Preview Content */,
+				2BBC550C2AE6E4FF00D3043D /* CallBodyViewModel.swift */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -68,6 +81,130 @@
 				2BBC55012AE6CE0F00D3043D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2BBC550E2AE990E100D3043D /* Pantry */ = {
+			isa = PBXGroup;
+			children = (
+				2BBC55142AE9913C00D3043D /* View */,
+				2BBC55132AE9913400D3043D /* ViewModel */,
+				2BBC55122AE9912200D3043D /* Model */,
+			);
+			path = Pantry;
+			sourceTree = "<group>";
+		};
+		2BBC550F2AE990EE00D3043D /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				2BBC55172AE9916000D3043D /* View */,
+				2BBC55162AE9915A00D3043D /* ViewModel */,
+				2BBC55152AE9915400D3043D /* Model */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		2BBC55102AE990F600D3043D /* Meal Planning */ = {
+			isa = PBXGroup;
+			children = (
+				2BBC551A2AE992A100D3043D /* View */,
+				2BBC55192AE9929C00D3043D /* ViewModel */,
+				2BBC55182AE9929400D3043D /* Model */,
+			);
+			path = "Meal Planning";
+			sourceTree = "<group>";
+		};
+		2BBC55112AE9910C00D3043D /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				2BBC551D2AE992B100D3043D /* View */,
+				2BBC551C2AE992AC00D3043D /* ViewModel */,
+				2BBC551B2AE992A700D3043D /* Model */,
+			);
+			path = Shopping;
+			sourceTree = "<group>";
+		};
+		2BBC55122AE9912200D3043D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2BBC55132AE9913400D3043D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2BBC55142AE9913C00D3043D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2BBC55152AE9915400D3043D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2BBC55162AE9915A00D3043D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2BBC55172AE9916000D3043D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2BBC55182AE9929400D3043D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2BBC55192AE9929C00D3043D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2BBC551A2AE992A100D3043D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2BBC551B2AE992A700D3043D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2BBC551C2AE992AC00D3043D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2BBC551D2AE992B100D3043D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +278,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BBC54FB2AE6CE0E00D3043D /* ContentView.swift in Sources */,
+				2BBC55092AE6D4E200D3043D /* RecipeModel.swift in Sources */,
 				2BBC54FD2AE6CE0E00D3043D /* Item.swift in Sources */,
+				2BBC550B2AE6DE3200D3043D /* ApiTextCall.swift in Sources */,
+				2BBC550D2AE6E4FF00D3043D /* CallBodyViewModel.swift in Sources */,
 				2BBC54F92AE6CE0E00D3043D /* FinalProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
