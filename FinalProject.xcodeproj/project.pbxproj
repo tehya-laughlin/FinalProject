@@ -12,8 +12,8 @@
 		2BBC54FD2AE6CE0E00D3043D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC54FC2AE6CE0E00D3043D /* Item.swift */; };
 		2BBC54FF2AE6CE0F00D3043D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC54FE2AE6CE0F00D3043D /* Assets.xcassets */; };
 		2BBC55022AE6CE0F00D3043D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC55012AE6CE0F00D3043D /* Preview Assets.xcassets */; };
-		2BBC55092AE6D4E200D3043D /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55082AE6D4E200D3043D /* RecipeModel.swift */; };
-		2BBC550B2AE6DE3200D3043D /* ApiTextCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC550A2AE6DE3200D3043D /* ApiTextCall.swift */; };
+		2BBC55092AE6D4E200D3043D /* CallBodyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55082AE6D4E200D3043D /* CallBodyModel.swift */; };
+		2BBC550B2AE6DE3200D3043D /* CallBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC550A2AE6DE3200D3043D /* CallBodyView.swift */; };
 		2BBC550D2AE6E4FF00D3043D /* CallBodyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC550C2AE6E4FF00D3043D /* CallBodyViewModel.swift */; };
 		2BBC551F2AE9A1C200D3043D /* InPantryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC551E2AE9A1C200D3043D /* InPantryView.swift */; };
 		2BBC55212AE9A1D900D3043D /* AddPantryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55202AE9A1D900D3043D /* AddPantryView.swift */; };
@@ -36,8 +36,8 @@
 		2BBC54FC2AE6CE0E00D3043D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		2BBC54FE2AE6CE0F00D3043D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BBC55012AE6CE0F00D3043D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2BBC55082AE6D4E200D3043D /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
-		2BBC550A2AE6DE3200D3043D /* ApiTextCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTextCall.swift; sourceTree = "<group>"; };
+		2BBC55082AE6D4E200D3043D /* CallBodyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallBodyModel.swift; sourceTree = "<group>"; };
+		2BBC550A2AE6DE3200D3043D /* CallBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallBodyView.swift; sourceTree = "<group>"; };
 		2BBC550C2AE6E4FF00D3043D /* CallBodyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallBodyViewModel.swift; sourceTree = "<group>"; };
 		2BBC551E2AE9A1C200D3043D /* InPantryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPantryView.swift; sourceTree = "<group>"; };
 		2BBC55202AE9A1D900D3043D /* AddPantryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPantryView.swift; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		2BBC55152AE9915400D3043D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2BBC55082AE6D4E200D3043D /* RecipeModel.swift */,
+				2BBC55082AE6D4E200D3043D /* CallBodyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,7 +191,7 @@
 				2BBC552C2AE9A24C00D3043D /* RecipeHomeView.swift */,
 				2BBC552E2AE9A25700D3043D /* RecipeSearchView.swift */,
 				2BBC55302AE9A26800D3043D /* RecipeDetailView.swift */,
-				2BBC550A2AE6DE3200D3043D /* ApiTextCall.swift */,
+				2BBC550A2AE6DE3200D3043D /* CallBodyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -352,12 +352,12 @@
 				2BBC552B2AE9A23700D3043D /* MealPlanningView.swift in Sources */,
 				2BBC54FB2AE6CE0E00D3043D /* ContentView.swift in Sources */,
 				2BBC55272AE9A21800D3043D /* WeekPlanView.swift in Sources */,
-				2BBC55092AE6D4E200D3043D /* RecipeModel.swift in Sources */,
+				2BBC55092AE6D4E200D3043D /* CallBodyModel.swift in Sources */,
 				2BBC55312AE9A26800D3043D /* RecipeDetailView.swift in Sources */,
 				2BBC55252AE9A20700D3043D /* ShoppingListView.swift in Sources */,
 				2BBC55332AE9C33B00D3043D /* AllCollectionsView.swift in Sources */,
 				2BBC54FD2AE6CE0E00D3043D /* Item.swift in Sources */,
-				2BBC550B2AE6DE3200D3043D /* ApiTextCall.swift in Sources */,
+				2BBC550B2AE6DE3200D3043D /* CallBodyView.swift in Sources */,
 				2BBC55292AE9A22400D3043D /* DayPlanView.swift in Sources */,
 				2BBC55232AE9A1E800D3043D /* PantryView.swift in Sources */,
 				2BBC550D2AE6E4FF00D3043D /* CallBodyViewModel.swift in Sources */,
