@@ -7,23 +7,37 @@
 
 import SwiftUI
 
-struct ApiTextCall: View {
+struct CallBodyView: View {
     
     @ObservedObject var appViewModel: AppViewModel
+    var size: CGSize
     
     
     var body: some View {
         
-        List(appViewModel.call.hits) { recipeInfo in
-            
-            Text("\(recipeInfo.recipe.label)")
-            
+        Button("Next Page") {
+            Task {
+                await appViewModel.getCallFromUrl(url: appViewModel.call._links.next.href)
+            }
         }
+        
+        ScrollView{
+            ForEach(appViewModel.call.hits) { recipeInfo in
+                NavigationLink(destination: RecipeDetailView(size:size)){
+                    RecipeCardView(recipe: recipeInfo.recipe, size: size)
+                }
+                    
+            }
+        }
+        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+        
         
     }
     
 }
 
 #Preview {
-    ApiTextCall(appViewModel: AppViewModel())
+    GeometryReader{ geometry in
+        CallBodyView(appViewModel: AppViewModel(), size: geometry.size)
+    }
 }

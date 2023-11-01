@@ -34,7 +34,7 @@ struct Recipe: Codable, Identifiable {
     
     var uri: String
     var label: String
-    var image: String?
+    var image: String
     var images: Images?
     var source: String
     var url: String

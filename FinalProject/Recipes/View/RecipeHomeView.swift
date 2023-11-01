@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct RecipeHomeView: View {
+    
     @State var searchQuery: String = ""
+    var size: CGSize
+    
     var body: some View {
         NavigationView {
             
@@ -20,9 +23,6 @@ struct RecipeHomeView: View {
                         Text("Collections")
                         
                         HStack {
-                            NavigationLink("This goes to collections") {
-                                CollectionView()
-                            }
                             NavigationLink("This goes to collections") {
                                 CollectionView()
                             }
@@ -53,20 +53,23 @@ struct RecipeHomeView: View {
                         
                     }
                 } else {
-                    
-                    //display list, load in recipes based on search query to recipe name, ingredients, cusine, meal type, etc.
-                    
-                    RecipeSearchView()
-                    
+                    RecipeSearchView(searchQuery: $searchQuery, size: size)
                 }
                 
                 
             }.searchable(text: $searchQuery)
+               
+                
+               
             
         }
+       
     }
+        
 }
 
 #Preview {
-    RecipeHomeView()
+    GeometryReader{ geometry in
+        RecipeHomeView(size:geometry.size)
+    }
 }
