@@ -32,6 +32,7 @@
 		2BBC55412AF0251E00D3043D /* IngredientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55402AF0251E00D3043D /* IngredientModel.swift */; };
 		2BBC55432AF0252600D3043D /* PantryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55422AF0252600D3043D /* PantryModel.swift */; };
 		2BBC55452AF0253000D3043D /* PantryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55442AF0253000D3043D /* PantryViewModel.swift */; };
+		2BBC55472AF3418200D3043D /* ItemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55462AF3418200D3043D /* ItemCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		2BBC55402AF0251E00D3043D /* IngredientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientModel.swift; sourceTree = "<group>"; };
 		2BBC55422AF0252600D3043D /* PantryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryModel.swift; sourceTree = "<group>"; };
 		2BBC55442AF0253000D3043D /* PantryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryViewModel.swift; sourceTree = "<group>"; };
+		2BBC55462AF3418200D3043D /* ItemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				2BBC55302AE9A26800D3043D /* RecipeDetailView.swift */,
 				2BBC550A2AE6DE3200D3043D /* CallBodyView.swift */,
 				2BBC553A2AF0020B00D3043D /* RecipeCardView.swift */,
+				2BBC55462AF3418200D3043D /* ItemCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				2BBC54FB2AE6CE0E00D3043D /* ContentView.swift in Sources */,
 				2BBC55272AE9A21800D3043D /* WeekPlanView.swift in Sources */,
 				2BBC55092AE6D4E200D3043D /* CallBodyModel.swift in Sources */,
+				2BBC55472AF3418200D3043D /* ItemCardView.swift in Sources */,
 				2BBC55432AF0252600D3043D /* PantryModel.swift in Sources */,
 				2BBC55312AE9A26800D3043D /* RecipeDetailView.swift in Sources */,
 				2BBC55252AE9A20700D3043D /* ShoppingListView.swift in Sources */,

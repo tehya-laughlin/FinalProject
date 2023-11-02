@@ -21,7 +21,7 @@ struct RecipeCardView: View {
                 
             
             HStack{
-                AsyncImage(url: URL(string: recipe.images?.SMALL?.url ?? "https://www.ivins.com/wp-content/uploads/2020/09/placeholder-1.png"))
+                AsyncImage(url: URL(string: recipe.images?.SMALL?.url ?? "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg"))
                     .frame(width: size.width*0.4, height: 96)
                 
             

@@ -20,10 +20,13 @@ struct CallBodyView: View {
                 await appViewModel.getCallFromUrl(url: appViewModel.call._links.next.href)
             }
         }
+        .frame(width: size.width, alignment: .trailing)
+        .padding(.trailing, 30)
+        .offset(CGSize(width: 0.0, height: -22.0))
         
         ScrollView{
             ForEach(appViewModel.call.hits) { recipeInfo in
-                NavigationLink(destination: RecipeDetailView(size:size)){
+                NavigationLink(destination: RecipeDetailView(size:size, recipe: recipeInfo.recipe)){
                     RecipeCardView(recipe: recipeInfo.recipe, size: size)
                 }
                     
@@ -36,8 +39,3 @@ struct CallBodyView: View {
     
 }
 
-#Preview {
-    GeometryReader{ geometry in
-        CallBodyView(appViewModel: AppViewModel(), size: geometry.size)
-    }
-}

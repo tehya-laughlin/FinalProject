@@ -115,6 +115,11 @@ struct Ingredient: Codable, Identifiable {
     var foodCategory: String?
     var foodID: String?
     var image: String?
+    
+    init(){
+        text = ""
+    }
+    
 }
 
 struct Images: Codable {

@@ -37,23 +37,34 @@ struct RecipeHomeView: View {
                     VStack{
                         
                         Text("Meal Types")
+                            .frame(maxWidth: size.width, alignment: .leading)
+                            .padding(30)
                         
                         HStack {
-                            NavigationLink("breakfast") {
+                            NavigationLink {
+                                RecipeSearchView(searchQuery: $searchQuery, size: size, filterToggle: false, selectedMealType: RecipeSearchView.FilterMealType.breakfast, selectedCuisine: RecipeSearchView.FilterCuisineType.none)
+                            } label: {
+                                ItemCardView(urlString: "https://www.marionskitchen.com/wp-content/uploads/2021/08/20201116_Marions-Best-Pancakes-16-819x1024.jpeg", typeName: "Breakfast", size:size)
+                            }
+                            NavigationLink{
+                                RecipeSearchView(searchQuery: $searchQuery, size: size, filterToggle: false, selectedMealType: RecipeSearchView.FilterMealType.lunch, selectedCuisine: RecipeSearchView.FilterCuisineType.none)
+                            }label: {
+                                ItemCardView(urlString: "https://insanelygoodrecipes.com/wp-content/uploads/2021/03/Homemade-Grilled-Cheese-Sandwich-with-Tomatoes.png", typeName: "Lunch", size:size)
                                 
                             }
-                            NavigationLink("lunch") {
-                                
+                            
+                            NavigationLink{
+                                RecipeSearchView(searchQuery: $searchQuery, size: size, filterToggle: false, selectedMealType: RecipeSearchView.FilterMealType.dinner, selectedCuisine: RecipeSearchView.FilterCuisineType.none)
+                            }label: {
+                                ItemCardView(urlString: "https://www.realsimple.com/thmb/fMh6cWLYxsddO3BuSJXanCk1gpI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-dinner-recipes-f768402675e04452b1531360736da8b5.jpg", typeName: "Dinner", size:size)
                             }
-                            NavigationLink("dinner"){
-                                
-                            }
+                            
                             
                         }
                         
                     }
                 } else {
-                    RecipeSearchView(searchQuery: $searchQuery, size: size)
+                    RecipeSearchView(searchQuery: $searchQuery, size: size, filterToggle: true, selectedMealType: RecipeSearchView.FilterMealType.none, selectedCuisine: RecipeSearchView.FilterCuisineType.none)
                 }
                 
                 
@@ -67,6 +78,7 @@ struct RecipeHomeView: View {
     }
         
 }
+                        
 
 #Preview {
     GeometryReader{ geometry in
