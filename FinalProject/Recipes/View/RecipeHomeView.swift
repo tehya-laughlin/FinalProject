@@ -21,16 +21,22 @@ struct RecipeHomeView: View {
                     VStack{
                         
                         Text("Collections")
+                            .frame(maxWidth: size.width, alignment: .leading)
+                            .padding(30)
                         
                         HStack {
-                            NavigationLink("This goes to collections") {
-                                CollectionView()
-                            }
+                                NavigationLink {
+                                    CollectionView()
+                                } label: {
+                                    ItemCardView(urlString: "", typeName: "Favorites", size:size)
+                                }
+                            
                             Button("Add new collection"){
                                 
                             }
                             
-                        }
+                        }.frame(width: size.width, alignment: .leading)
+                            .padding(.leading, 30)
                         
                     }
                     
@@ -60,14 +66,15 @@ struct RecipeHomeView: View {
                             }
                             
                             
-                        }
+                        }.frame(width: size.width, alignment: .leading)
+                            .padding(.leading, 30)
                         
                     }
                 } else {
                     RecipeSearchView(searchQuery: $searchQuery, size: size, filterToggle: true, selectedMealType: RecipeSearchView.FilterMealType.none, selectedCuisine: RecipeSearchView.FilterCuisineType.none)
                 }
                 
-                
+                Spacer()
             }.searchable(text: $searchQuery)
                
                 
