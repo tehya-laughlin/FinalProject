@@ -12,8 +12,8 @@ struct CallBody: Codable {
     var from: Int?
     var to: Int?
     var count: Int?
-    var _links: Link2
-    var hits: [RecipeInfo]
+    var _links: Link2?
+    var hits: [RecipeInfo]?
     
     init(){
         from = 0
@@ -26,19 +26,19 @@ struct CallBody: Codable {
 
 struct RecipeInfo: Codable, Identifiable {
     var id: Int { return UUID().hashValue }
-    var recipe: Recipe
+    var recipe: Recipe?
 }
 
 struct Recipe: Codable, Identifiable {
     var id:  Int { return UUID().hashValue }
     
-    var uri: String
-    var label: String
-    var image: String
+    var uri: String?
+    var label: String?
+    var image: String?
     var images: Images?
-    var source: String
-    var url: String
-    var shareAs: String
+    var source: String?
+    var url: String?
+    var shareAs: String?
     var yield: Int?
     var dietLabels: [String]?
     var healthLabels: [String]?
@@ -65,12 +65,12 @@ struct Links: Codable {
 }
 
 struct Link2: Codable {
-    var next: LinkInfo
+    var next: LinkInfo?
 }
 
 struct LinkInfo: Codable {
-    var title: String
-    var href: String
+    var title: String?
+    var href: String?
 }
 
 struct Nutrients: Codable {
@@ -88,9 +88,9 @@ struct Nutrients: Codable {
 
 struct Nutrient: Codable {
     var uri: String?
-    var label: String
-    var quantity: Double
-    var unit: String
+    var label: String?
+    var quantity: Double?
+    var unit: String?
 }
 
 struct NutrientDigest: Codable {
@@ -107,7 +107,7 @@ struct NutrientDigest: Codable {
 
 struct Ingredient: Codable, Identifiable {
     var id:  Int { return UUID().hashValue }
-    var text: String
+    var text: String?
     var quantity: Double?
     var measure: String?
     var food: String?

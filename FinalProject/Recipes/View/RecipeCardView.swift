@@ -23,16 +23,18 @@ struct RecipeCardView: View {
             HStack{
                 AsyncImage(url: URL(string: recipe.images?.SMALL?.url ?? "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg"))
                     .frame(width: size.width*0.4, height: 96)
+                    .clipped()
                 
             
                 
                 VStack{
-                    Text("\(recipe.label)")
+                    Text("\(recipe.label ?? "No Label")")
                         .font(.headline)
                         .foregroundColor(.black)
                 }
                 .frame(width: size.width*0.4)
                 .padding(.leading, 20)
+                .padding(.trailing, 10)
                 
             }
         }

@@ -27,17 +27,9 @@ struct RecipeDetailView: View {
                         pageToggle.toggle()
                     } label: {
                         Text("Change to \(pageToggle ? "Ingredients" : "Nutrients" )")
-                            .padding(EdgeInsets(top: 6, leading: 10, bottom: 6, trailing: 10))
-                            .background(Color.white)
-                            .cornerRadius(5)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .inset(by: 1)
-                                    .stroke(Color("Main"), lineWidth: 2)
-                            )
                             
-                           
                     }
+                    .buttonStyle(CustomButton())
                     .offset(CGSize(width: 0.0, height: 42.0))
                         
                     
@@ -46,7 +38,7 @@ struct RecipeDetailView: View {
                
                 
                 VStack(alignment: .leading){
-                    Text("\(recipe.label)")
+                    Text("\(recipe.label ?? "No Label")")
                         .font(.title)
                         .offset(CGSize(width: 0.0, height: -50.0))
                         .padding(.leading, 30)
@@ -67,7 +59,7 @@ struct RecipeDetailView: View {
                             List(recipe.ingredients ?? [Ingredient()]){
                                 ingredient in
                                 
-                                Text("\(ingredient.text)")
+                                Text("\(ingredient.text ?? "No Ingredient")")
                                 
                             }
                           

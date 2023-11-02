@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CollectionView: View {
+    
     var body: some View {
         Text("1 collection detail display, recipe list")
     }

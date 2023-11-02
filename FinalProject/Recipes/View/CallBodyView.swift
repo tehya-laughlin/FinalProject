@@ -11,28 +11,53 @@ struct CallBodyView: View {
     
     @ObservedObject var appViewModel: AppViewModel
     var size: CGSize
+    var searchQuery: String
+    @Binding  var selectedMealType: FilterMealType
+    
+    @Binding  var selectedCuisine: FilterCuisineType
+    
+    @Binding  var selectedDish: FilterDishType
     
     
     var body: some View {
         
-        Button("Next Page") {
-            Task {
-                await appViewModel.getCallFromUrl(url: appViewModel.call._links.next.href)
-            }
-        }
-        .frame(width: size.width, alignment: .trailing)
-        .padding(.trailing, 30)
-        .offset(CGSize(width: 0.0, height: -22.0))
-        
-        ScrollView{
-            ForEach(appViewModel.call.hits) { recipeInfo in
-                NavigationLink(destination: RecipeDetailView(size:size, recipe: recipeInfo.recipe)){
-                    RecipeCardView(recipe: recipeInfo.recipe, size: size)
-                }
+        VStack{
+            VStack{
+                HStack{
+                    Button("Load Recipes") {
+                        Task{
+                            await appViewModel.getCall(searchValue: searchQuery, mealType: selectedMealType.rawValue, cuisineType: selectedCuisine.rawValue, dishType: selectedDish.rawValue)
+                        }
+                    }
+                    .buttonStyle(CustomButton())
+                    .frame(width: size.width/3, height: size.height/9)
+                    .padding(.trailing, 10)
                     
+                    Button("Next Page") {
+                        Task {
+                            await appViewModel.getCallFromUrl(url1: (appViewModel.call._links!.next?.href!)!)
+                        }
+                    }
+                    .buttonStyle(CustomButton())
+                    .frame(width: size.width/3)
+                    .padding(.leading, 10)
+                }
+                Text("\(appViewModel.call.from ?? 0) to \(appViewModel.call.to ?? 0)")
             }
+            
+            ScrollView{
+                Spacer()
+                ForEach(appViewModel.call.hits!) { recipeInfo in
+                    NavigationLink(destination: RecipeDetailView(size:size, recipe: recipeInfo.recipe!)){
+                        RecipeCardView(recipe: recipeInfo.recipe!, size: size)
+                    }
+                    
+                }
+            }
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            .frame(height:size.height*0.62)
+            
         }
-        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
         
         
     }

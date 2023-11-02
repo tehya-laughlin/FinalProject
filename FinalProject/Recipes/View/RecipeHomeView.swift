@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct RecipeHomeView: View {
     
     @State var searchQuery: String = ""
     var size: CGSize
+    @State var addCollectionAlert: Bool = false
+    @ObservedObject var appViewModel = AppViewModel()
     
     var body: some View {
         NavigationView {
@@ -22,7 +25,8 @@ struct RecipeHomeView: View {
                         
                         Text("Collections")
                             .frame(maxWidth: size.width, alignment: .leading)
-                            .padding(30)
+                            .padding(.leading, 30)
+                            .font(.headline)
                         
                         HStack {
                                 NavigationLink {
@@ -32,11 +36,22 @@ struct RecipeHomeView: View {
                                 }
                             
                             Button("Add new collection"){
-                                
+                                addCollectionAlert = true
+                            }.alert("message", isPresented: $addCollectionAlert){
+                                Button("idk", role: .none) {
+                                  
+                                }
+                                Button("OK", role: .cancel) {}
                             }
+                            .buttonStyle(CustomButton())
+                            .frame(width: size.width/4, height: size.width/4, alignment: .top)
+                            .padding(.leading, 10)
+                            
+                            
                             
                         }.frame(width: size.width, alignment: .leading)
                             .padding(.leading, 30)
+                            .padding(.bottom, 24)
                         
                     }
                     
@@ -44,23 +59,24 @@ struct RecipeHomeView: View {
                         
                         Text("Meal Types")
                             .frame(maxWidth: size.width, alignment: .leading)
-                            .padding(30)
+                            .padding(.leading, 30)
+                            .font(.headline)
                         
                         HStack {
                             NavigationLink {
-                                RecipeSearchView(searchQuery: $searchQuery, size: size, filterToggle: false, selectedMealType: RecipeSearchView.FilterMealType.breakfast, selectedCuisine: RecipeSearchView.FilterCuisineType.none)
+                                RecipeListView(size: size, selectedMealType: FilterMealType.breakfast, selectedCuisine: FilterCuisineType.none, selectedDish: FilterDishType.none )
                             } label: {
                                 ItemCardView(urlString: "https://www.marionskitchen.com/wp-content/uploads/2021/08/20201116_Marions-Best-Pancakes-16-819x1024.jpeg", typeName: "Breakfast", size:size)
                             }
                             NavigationLink{
-                                RecipeSearchView(searchQuery: $searchQuery, size: size, filterToggle: false, selectedMealType: RecipeSearchView.FilterMealType.lunch, selectedCuisine: RecipeSearchView.FilterCuisineType.none)
+                                RecipeListView(size: size, selectedMealType: FilterMealType.lunch, selectedCuisine: FilterCuisineType.none, selectedDish: FilterDishType.none)
                             }label: {
                                 ItemCardView(urlString: "https://insanelygoodrecipes.com/wp-content/uploads/2021/03/Homemade-Grilled-Cheese-Sandwich-with-Tomatoes.png", typeName: "Lunch", size:size)
                                 
                             }
                             
                             NavigationLink{
-                                RecipeSearchView(searchQuery: $searchQuery, size: size, filterToggle: false, selectedMealType: RecipeSearchView.FilterMealType.dinner, selectedCuisine: RecipeSearchView.FilterCuisineType.none)
+                                RecipeListView(size: size, selectedMealType: FilterMealType.dinner, selectedCuisine: FilterCuisineType.none, selectedDish: FilterDishType.mainCourse)
                             }label: {
                                 ItemCardView(urlString: "https://www.realsimple.com/thmb/fMh6cWLYxsddO3BuSJXanCk1gpI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-dinner-recipes-f768402675e04452b1531360736da8b5.jpg", typeName: "Dinner", size:size)
                             }
@@ -68,19 +84,23 @@ struct RecipeHomeView: View {
                             
                         }.frame(width: size.width, alignment: .leading)
                             .padding(.leading, 30)
+                            .padding(.bottom, 24)
+                        
+                        
                         
                     }
                 } else {
-                    RecipeSearchView(searchQuery: $searchQuery, size: size, filterToggle: true, selectedMealType: RecipeSearchView.FilterMealType.none, selectedCuisine: RecipeSearchView.FilterCuisineType.none)
+                    RecipeSearchView(searchQuery: $searchQuery, size: size, filterToggle: true, selectedMealType: FilterMealType.none, selectedCuisine: FilterCuisineType.none, selectedDish: FilterDishType.none)
                 }
                 
                 Spacer()
             }.searchable(text: $searchQuery)
+               // .padding(.top, 16)
                
                 
                
             
-        }
+        }.toolbar(.visible, for: .tabBar)
        
     }
         
