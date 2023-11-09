@@ -32,12 +32,17 @@ struct PantryView: View {
                 } label: {
                     if(pageToggle) {
                         Text("Current pantry")
+                            .font(.title3)
                             .fontWeight(.bold)
+                            
                     } else {
                         Text("Current pantry")
+                            .font(.title3)
                             .fontWeight(.regular)
+                            
                     }
                 }
+                .frame(alignment: .leading)
               
                 
                 Button{
@@ -45,10 +50,14 @@ struct PantryView: View {
                 } label: {
                     if(pageToggle) {
                         Text("Add to pantry")
+                            .font(.title3)
                             .fontWeight(.regular)
+                           
                     } else {
                         Text("Add to pantry")
+                            .font(.title3)
                             .fontWeight(.bold)
+                          
                     }
                 }
                 

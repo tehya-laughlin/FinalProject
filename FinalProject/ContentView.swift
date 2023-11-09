@@ -18,16 +18,16 @@ struct ContentView: View {
             
             TabView{
                 PantryView(size: geometry.size).tabItem{
-                    Label("Pantry", systemImage: "globe")
+                    Label("Pantry", systemImage: "cabinet")
                 }
                 RecipeHomeView(size: geometry.size).tabItem{
-                    Label("Recipes", systemImage: "globe")
+                    Label("Recipes", systemImage: "book.pages.fill")
                 }
                 MealPlanningView().tabItem{
-                    Label("Meal Plan", systemImage: "globe")
+                    Label("Meal Plan", systemImage: "calendar")
                 }
                 ShoppingListView().tabItem{
-                    Label("Shopping List", systemImage: "globe")
+                    Label("Shopping List", systemImage: "cart.fill")
                 }
             }
         }

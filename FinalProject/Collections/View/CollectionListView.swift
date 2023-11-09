@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct CollectionListView: View {
-    @Environment(\.modelContext) var collectionModelContext
+    @Environment(\.modelContext) var modelContext
     @Query var collections: [Collection]
     
     var body: some View {
@@ -29,7 +29,7 @@ struct CollectionListView: View {
     func deleteCollections(_ indexSet: IndexSet) {
         for index in indexSet {
             let collection = collections[index]
-            collectionModelContext.delete(collection)
+            modelContext.delete(collection)
         }
     }
 }

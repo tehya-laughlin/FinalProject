@@ -16,15 +16,27 @@ struct InPantryView: View {
     var size: CGSize
     
     var body: some View {
-        VStack{
-            
-            List{
-                ForEach(ingredients){
-                    ingredient in
-                        Text("\(ingredient.food)")
+        NavigationView{
+            VStack{
+                
+                if(ingredients.isEmpty){
+                    VStack{
+                        Text("Your pantry is empty")
+                            .font(.title3)
+                        Image("Pantry")
+                            .resizable()
+                            .frame(width: size.width)
+                    }
+                    .padding(.top, 64)
                 }
+                List{
+                    ForEach(ingredients){
+                        ingredient in
+                        Text("\(ingredient.food)")
+                    }
+                }
+                
             }
-            
         }
     }
     

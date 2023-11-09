@@ -10,7 +10,7 @@ import SwiftData
 
 struct AllCollectionsView: View {
     
-    @Environment(\.modelContext)  var collectionModelContext
+    @Environment(\.modelContext)  var modelContext
     @State var collections = [Collection]()
     
     var body: some View{
@@ -31,7 +31,7 @@ struct AllCollectionsView: View {
     
     func addCollection() {
         let collection = Collection()
-        collectionModelContext.insert(collection)
+        modelContext.insert(collection)
         collections = [collection]
     }
     
