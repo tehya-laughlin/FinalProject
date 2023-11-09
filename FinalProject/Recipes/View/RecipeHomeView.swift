@@ -15,8 +15,10 @@ struct RecipeHomeView: View {
     @State var addCollectionAlert: Bool = false
     @ObservedObject var appViewModel = AppViewModel()
     
+    @Environment(\.modelContext)  var collectionModelContext
+    
     var body: some View {
-        NavigationView {
+        NavigationStack(){
             
             VStack{
                 
@@ -37,11 +39,13 @@ struct RecipeHomeView: View {
                             
                             Button("Add new collection"){
                                 addCollectionAlert = true
-                            }.alert("message", isPresented: $addCollectionAlert){
-                                Button("idk", role: .none) {
-                                  
+                            }.alert("In order to add a collection, go to the collections page", isPresented: $addCollectionAlert){
+                                
+                                NavigationLink("Go to collections"){
+                                    AllCollectionsView()
                                 }
-                                Button("OK", role: .cancel) {}
+                                
+                                Button("Cancel", role: .cancel) {}
                             }
                             .buttonStyle(CustomButton())
                             .frame(width: size.width/4, height: size.width/4, alignment: .top)

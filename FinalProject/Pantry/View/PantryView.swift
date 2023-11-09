@@ -6,27 +6,52 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct PantryView: View {
+    @Environment(\.modelContext) var modelContext
     @State var pageToggle: Bool = true
+    @ObservedObject var pantryViewModel = PantryViewModel()
+    @State var ingredients = [Item]()
+    
+    var size: CGSize
+    
     var body: some View {
         NavigationView{
             
             VStack{
                 if(pageToggle){
-                    InPantryView()
+                    InPantryView(pantryViewModel: pantryViewModel, size: size)
                 } else {
-                    AddPantryView()
+                    AddPantryView(pantryViewModel: pantryViewModel, size: size)
                 }
             }
-            .toolbar {
-                Button("Current pantry"){
+            .toolbar{
+                Button{
                     pageToggle = true
+                } label: {
+                    if(pageToggle) {
+                        Text("Current pantry")
+                            .fontWeight(.bold)
+                    } else {
+                        Text("Current pantry")
+                            .fontWeight(.regular)
+                    }
+                }
+              
+                
+                Button{
+                    pageToggle = false
+                } label: {
+                    if(pageToggle) {
+                        Text("Add to pantry")
+                            .fontWeight(.regular)
+                    } else {
+                        Text("Add to pantry")
+                            .fontWeight(.bold)
+                    }
                 }
                 
-                Button("Add to pantry"){
-                    pageToggle = false
-                }
             }
             
             
@@ -36,6 +61,3 @@ struct PantryView: View {
     }
 }
 
-#Preview {
-    PantryView()
-}

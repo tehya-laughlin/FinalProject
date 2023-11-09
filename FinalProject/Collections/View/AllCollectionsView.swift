@@ -6,13 +6,39 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AllCollectionsView: View {
-    var body: some View {
-        Text("all collections list")
+    
+    @Environment(\.modelContext)  var collectionModelContext
+    @State var collections = [Collection]()
+    
+    var body: some View{
+     
+        NavigationStack(path: $collections){
+            
+            CollectionListView()
+                .navigationTitle("Collections")
+                .navigationDestination(for: Collection.self, destination: CollectionCardView.init)
+                .toolbar {
+                    Button("Add Collection", systemImage: "plus", action: addCollection)
+                }
+            
+            
+        }
+        
     }
+    
+    func addCollection() {
+        let collection = Collection()
+        collectionModelContext.insert(collection)
+        collections = [collection]
+    }
+    
 }
 
 #Preview {
     AllCollectionsView()
+        .modelContainer(for: Collection.self, inMemory: true)
+       
 }

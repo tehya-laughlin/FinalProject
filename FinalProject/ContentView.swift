@@ -6,16 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    @Environment(\.modelContext) var modelContext
     
-  
+    
 
     var body: some View {
         GeometryReader{ geometry in
             
             TabView{
-                PantryView().tabItem{
+                PantryView(size: geometry.size).tabItem{
                     Label("Pantry", systemImage: "globe")
                 }
                 RecipeHomeView(size: geometry.size).tabItem{

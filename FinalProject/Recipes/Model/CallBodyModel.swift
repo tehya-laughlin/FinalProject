@@ -29,6 +29,7 @@ struct RecipeInfo: Codable, Identifiable {
     var recipe: Recipe?
 }
 
+
 struct Recipe: Codable, Identifiable {
     var id:  Int { return UUID().hashValue }
     

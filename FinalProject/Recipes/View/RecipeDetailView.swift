@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     
+    @Environment(\.openURL) var openURL
     var size: CGSize
     var recipe: Recipe
     @State var pageToggle: Bool = false
@@ -26,7 +27,7 @@ struct RecipeDetailView: View {
                     Button(){
                         pageToggle.toggle()
                     } label: {
-                        Text("Change to \(pageToggle ? "Ingredients" : "Nutrients" )")
+                        Text("Change to \(pageToggle ? "Ingredients" : "Information" )")
                             
                     }
                     .buttonStyle(CustomButton())
@@ -37,59 +38,75 @@ struct RecipeDetailView: View {
                 .frame(width: size.width, height: 256)
                
                 
-                VStack(alignment: .leading){
-                    Text("\(recipe.label ?? "No Label")")
-                        .font(.title)
-                        .offset(CGSize(width: 0.0, height: -50.0))
-                        .padding(.leading, 30)
-                    
-                    Text("yield: \(recipe.yield ?? 0)")
-                        .font(.headline)
-                        .padding(.leading, 30)
-                        .offset(CGSize(width: 0.0, height: -45.0))
-                       
-                    
-                    if(!pageToggle){
-                        VStack(alignment: .leading){
-                            
-                            Text("Ingredients")
-                                .font(.headline)
-                                .padding(.leading, 30)
-                            
-                            List(recipe.ingredients ?? [Ingredient()]){
-                                ingredient in
-                                
-                                Text("\(ingredient.text ?? "No Ingredient")")
-                                
-                            }
-                          
-                            
-                            Spacer()
-                        }
-                        .frame(width: size.width, alignment: .leading)
-                        .offset(CGSize(width: 0.0, height: -40.0))
+            
+                    VStack(alignment: .leading){
+                        Text("\(recipe.label ?? "No Label")")
+                            .font(.title)
+                            .offset(CGSize(width: 0.0, height: -50.0))
+                            .padding(.leading, 30)
                         
-                    } else {
-                        VStack(alignment: .leading){
+                        Text("yield: \(recipe.yield ?? 0)")
+                            .font(.headline)
+                            .padding(.leading, 30)
+                            .offset(CGSize(width: 0.0, height: -45.0))
+                        
+                        
+                        if(!pageToggle){
+                            VStack(alignment: .leading){
+                                
+                                Text("Ingredients")
+                                    .font(.headline)
+                                    .padding(.leading, 30)
+                                
+                                List(recipe.ingredients ?? [Ingredient()]){
+                                    ingredient in
+                                    
+                                    Text("\(ingredient.text ?? "No Ingredient")")
+                                    
+                                }
+                                
+                                
+                                Spacer()
+                            }
+                            .frame(width: size.width, alignment: .leading)
+                            .offset(CGSize(width: 0.0, height: -40.0))
                             
-                            Text("Nutrients")
-                                .font(.headline)
-                                .padding(.leading, 30)
+                        } else {
+                            VStack(alignment: .leading){
+                                
+                                Text("Information")
+                                    .font(.headline)
+                                    .padding(.leading, 30)
+                                
+                                List{
+                                    Text("Calories: \(recipe.calories ?? 0)")
+                                    Text("Time: \(recipe.totalTime ?? 0)")
+                                    ForEach(recipe.dietLabels ?? ["No diet labels"], id: \.self) {
+                                        label in
+                                        Text("\(label)")
+                                    }
+                                    ForEach(recipe.healthLabels ?? ["No health labels"], id: \.self) {
+                                        label in
+                                        Text("\(label)")
+                                    }
+                                    
+                                }.padding(.bottom, 20)
+                                
+                                Spacer()
+                            }
+                            .frame(width: size.width, alignment: .leading)
+                            .offset(CGSize(width: 0.0, height: -40.0))
                             
-                          
-                            
-                            Spacer()
                         }
-                        .frame(width: size.width, alignment: .leading)
-                        .offset(CGSize(width: 0.0, height: -40.0))
-                       
-                    }
+            
                 }
                 .frame(height: size.height * 0.69)
                 
-                
-           
-                
+                Button("Cook this"){
+                    openURL(URL(string: recipe.url!)!)
+                }
+                .buttonStyle(CustomButton())
+                .offset(CGSize(width: 0.0, height: -110.0))
                 
             }
         }.toolbar {

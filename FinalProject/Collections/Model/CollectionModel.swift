@@ -12,30 +12,24 @@ import SwiftData
 class Collection: Identifiable {
     
     var id: Int { return UUID().hashValue }
-    var collection: [RecipeItem]
+    var name: String
+    @Relationship(deleteRule: .cascade) var collection = [RecipeItem]()
     
-    init(){
-        collection = []
-    }
-    
-    func addItem(newItem: RecipeItem) {
-        collection.append(newItem)
+    init(name: String = ""){
+        self.name = name
     }
     
 }
 
 @Model
-class RecipeItem: Identifiable {
-    
-    var id: Int { return UUID().hashValue }
-    
+class RecipeItem {
     var label: String
-    var urlString: String
-    var imageUrlString: String
+    var url: String
     
-    init(label: String = "", urlString: String = "", imageUrlString: String = ""){
+    init(label: String = "", url:String = "") {
         self.label = label
-        self.urlString = urlString
-        self.imageUrlString = imageUrlString
+        self.url = url
     }
+    
 }
+

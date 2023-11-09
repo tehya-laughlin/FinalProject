@@ -6,13 +6,34 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct InPantryView: View {
+    @Environment(\.modelContext) var modelContext
+    @ObservedObject var pantryViewModel: PantryViewModel
+    @Query var ingredients: [Item]
+    
+    var size: CGSize
+    
     var body: some View {
-        Text("current pantry items")
+        VStack{
+            
+            List{
+                ForEach(ingredients){
+                    ingredient in
+                        Text("\(ingredient.food)")
+                }
+            }
+            
+        }
     }
+    
+    func deleteIngredeitns(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let ingredient = ingredients[index]
+            modelContext.delete(ingredient)
+        }
+    }
+    
 }
 
-#Preview {
-    InPantryView()
-}
