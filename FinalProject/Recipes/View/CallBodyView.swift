@@ -35,7 +35,8 @@ struct CallBodyView: View {
                     
                     Button("Next Page") {
                         Task {
-                            await appViewModel.getCallFromUrl(url1: (appViewModel.call._links!.next?.href!)!)
+                            let lnk = appViewModel.call._links ?? Link2(next: LinkInfo(title: "", href:""))
+                            await appViewModel.getCallFromUrl(url1: (lnk.next?.href ?? ""))
                         }
                     }
                     .buttonStyle(CustomButton())
@@ -47,9 +48,9 @@ struct CallBodyView: View {
             
             ScrollView{
                 Spacer()
-                ForEach(appViewModel.call.hits!) { recipeInfo in
-                    NavigationLink(destination: RecipeDetailView(size:size, recipe: recipeInfo.recipe!)){
-                        RecipeCardView(recipe: recipeInfo.recipe!, size: size)
+                ForEach(appViewModel.call.hits ?? [RecipeInfo(recipe: Recipe())]) { recipeInfo in
+                    NavigationLink(destination: RecipeDetailView(size:size, recipe: recipeInfo.recipe ?? Recipe())){
+                        RecipeCardView(recipe: recipeInfo.recipe ?? Recipe(), size: size)
                     }
                     
                 }

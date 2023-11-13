@@ -11,9 +11,9 @@ import SwiftData
 @main
 struct FinalProjectApp: App {
 
-    //var container: ModelContainer
+    var container: ModelContainer
 
-        /*init() {
+        init() {
             do {
                 let config1 = ModelConfiguration(for: Item.self)
                 let config2 = ModelConfiguration(for: Collection.self)
@@ -22,13 +22,13 @@ struct FinalProjectApp: App {
             } catch {
                 fatalError("Failed to configure SwiftData container.")
             }
-        }*/
+        }
     
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: Item.self)
-        .modelContainer(for: Collection.self)
+        .modelContainer(container)
+     
     }
 }

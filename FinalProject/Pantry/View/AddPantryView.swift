@@ -32,7 +32,7 @@ struct AddPantryView: View {
             
             
             List{
-                ForEach(pantryViewModel.pantryCall.hints!){
+                ForEach(pantryViewModel.pantryCall.hints ?? [IngredientModel(f: IngredientItem())]){
                     ingredient in
                     HStack{
                         Text("\(ingredient.food.knownAs)")
@@ -43,7 +43,7 @@ struct AddPantryView: View {
                     }
                 }
                 
-                ForEach(pantryViewModel.pantryCall.parsed!){
+                ForEach(pantryViewModel.pantryCall.parsed ?? [IngredientModel(f: IngredientItem())]){
                     ingredient in
                     HStack{
                         Text("\(ingredient.food.knownAs)")
