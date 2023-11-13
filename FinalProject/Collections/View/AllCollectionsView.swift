@@ -11,15 +11,15 @@ import SwiftData
 struct AllCollectionsView: View {
     
     @Environment(\.modelContext)  var modelContext
-    @State var collections = [Collection]()
+    @State var collections = [CollectionItem]()
     
-    var body: some View{
+    var body: some View {
      
         NavigationStack(path: $collections){
             
             CollectionListView()
                 .navigationTitle("Collections")
-                .navigationDestination(for: Collection.self, destination: CollectionCardView.init)
+                .navigationDestination(for: CollectionItem.self, destination: CollectionCardView.init)
                 .toolbar {
                     Button("Add Collection", systemImage: "plus", action: addCollection)
                 }
@@ -30,7 +30,7 @@ struct AllCollectionsView: View {
     }
     
     func addCollection() {
-        let collection = Collection()
+        let collection = CollectionItem()
         modelContext.insert(collection)
         collections = [collection]
     }
@@ -39,6 +39,6 @@ struct AllCollectionsView: View {
 
 #Preview {
     AllCollectionsView()
-        .modelContainer(for: Collection.self, inMemory: true)
+        .modelContainer(for: CollectionItem.self, inMemory: true)
        
 }

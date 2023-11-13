@@ -10,7 +10,7 @@ import SwiftData
 
 struct CollectionListView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var collections: [Collection]
+    @Query var collections: [CollectionItem]
     
     var body: some View {
         List {

@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Collection: Identifiable {
+class CollectionItem: Identifiable {
     
     var id: Int { return UUID().hashValue }
     var name: String

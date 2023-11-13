@@ -16,9 +16,9 @@ struct FinalProjectApp: App {
         init() {
             do {
                 let config1 = ModelConfiguration(for: Item.self)
-                let config2 = ModelConfiguration(for: Collection.self)
+                let config2 = ModelConfiguration(for: CollectionItem.self)
 
-                container = try ModelContainer(for: Item.self, Collection.self, configurations: config1, config2)
+                container = try ModelContainer(for: Item.self, CollectionItem.self, configurations: config1, config2)
             } catch {
                 fatalError("Failed to configure SwiftData container.")
             }
