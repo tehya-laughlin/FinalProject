@@ -10,35 +10,24 @@ import SwiftData
 
 struct AllCollectionsView: View {
     
-    @Environment(\.modelContext)  var modelContext
-    @State var collections = [CollectionItem]()
-    
-    var body: some View {
-     
-        NavigationStack(path: $collections){
-            
+    @State var isNewCollectionSelected = false
+        
+        var body: some View {
+         
             CollectionListView()
                 .navigationTitle("Collections")
-                .navigationDestination(for: CollectionItem.self, destination: CollectionCardView.init)
                 .toolbar {
-                    Button("Add Collection", systemImage: "plus", action: addCollection)
+                    Button {
+                        isNewCollectionSelected.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+
                 }
-            
-            
+                .navigationDestination(isPresented: $isNewCollectionSelected) {
+                    CollectionCardView(collections: CollectionItem())
+                }
         }
-        
-    }
-    
-    func addCollection() {
-        let collection = CollectionItem()
-        modelContext.insert(collection)
-        collections = [collection]
-    }
     
 }
 
-#Preview {
-    AllCollectionsView()
-        .modelContainer(for: CollectionItem.self, inMemory: true)
-       
-}

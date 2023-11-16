@@ -10,7 +10,7 @@ import Foundation
 class AppViewModel: ObservableObject {
     
     @Published var call = CallBody()
-   
+    
     
     func getCallFromUrl(url1: String) async -> () {
         do {
@@ -22,6 +22,8 @@ class AppViewModel: ObservableObject {
             print("Error: \(error.localizedDescription)")
         }
     }
+    
+    
     
     func formatUrlString(mealType: String, cuisineType: String, searchValue: String, dishType: String)  -> String{
         

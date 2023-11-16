@@ -18,7 +18,7 @@ struct RecipeHomeView: View {
     @Environment(\.modelContext)  var modelContext
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             
             VStack{
                 

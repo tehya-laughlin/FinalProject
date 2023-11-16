@@ -24,11 +24,13 @@ class CollectionItem: Identifiable {
 @Model
 class RecipeItem {
     var label: String
-    var url: String
+    var imageLink: String
+    var selfLink: String
     
-    init(label: String = "", url:String = "") {
+    init(label: String = "", imageLink :String = "", selfLink: String = "") {
         self.label = label
-        self.url = url
+        self.imageLink = imageLink
+        self.selfLink = selfLink
     }
     
 }
