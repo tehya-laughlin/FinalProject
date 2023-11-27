@@ -17,8 +17,8 @@ struct ContentView: View {
         GeometryReader{ geometry in
             
             TabView{
-                PantryView(size: geometry.size).tabItem{
-                    Label("Pantry", systemImage: "cabinet")
+                AllCollectionsView().tabItem{
+                    Label("Collections", systemImage: "folder")
                 }
                 RecipeHomeView(size: geometry.size).tabItem{
                     Label("Recipes", systemImage: "book.pages.fill")
@@ -26,9 +26,10 @@ struct ContentView: View {
                 MealPlanningView().tabItem{
                     Label("Meal Plan", systemImage: "calendar")
                 }
-                ShoppingListView().tabItem{
+                PantryView(size: geometry.size).tabItem{
                     Label("Shopping List", systemImage: "cart.fill")
                 }
+                
             }
         }
         

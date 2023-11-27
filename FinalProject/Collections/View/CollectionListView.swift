@@ -17,7 +17,7 @@ struct CollectionListView: View {
         
         var body: some View {
             GeometryReader{ geometry in
-                var size = geometry.size
+                let size = geometry.size
                 
                 List {
                     ForEach(collections) { collection in

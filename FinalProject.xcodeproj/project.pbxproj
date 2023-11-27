@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B4DB7EE2B15331A00CA357A /* MealPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DB7ED2B15331A00CA357A /* MealPlanModel.swift */; };
 		2BBC54F92AE6CE0E00D3043D /* FinalProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC54F82AE6CE0E00D3043D /* FinalProjectApp.swift */; };
 		2BBC54FB2AE6CE0E00D3043D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC54FA2AE6CE0E00D3043D /* ContentView.swift */; };
 		2BBC54FF2AE6CE0F00D3043D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC54FE2AE6CE0F00D3043D /* Assets.xcassets */; };
@@ -17,7 +18,6 @@
 		2BBC551F2AE9A1C200D3043D /* InPantryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC551E2AE9A1C200D3043D /* InPantryView.swift */; };
 		2BBC55212AE9A1D900D3043D /* AddPantryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55202AE9A1D900D3043D /* AddPantryView.swift */; };
 		2BBC55232AE9A1E800D3043D /* PantryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55222AE9A1E800D3043D /* PantryView.swift */; };
-		2BBC55252AE9A20700D3043D /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55242AE9A20700D3043D /* ShoppingListView.swift */; };
 		2BBC55272AE9A21800D3043D /* WeekPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55262AE9A21800D3043D /* WeekPlanView.swift */; };
 		2BBC55292AE9A22400D3043D /* DayPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55282AE9A22400D3043D /* DayPlanView.swift */; };
 		2BBC552B2AE9A23700D3043D /* MealPlanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC552A2AE9A23700D3043D /* MealPlanningView.swift */; };
@@ -41,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B4DB7ED2B15331A00CA357A /* MealPlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanModel.swift; sourceTree = "<group>"; };
 		2BBC54F52AE6CE0E00D3043D /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBC54F82AE6CE0E00D3043D /* FinalProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectApp.swift; sourceTree = "<group>"; };
 		2BBC54FA2AE6CE0E00D3043D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		2BBC551E2AE9A1C200D3043D /* InPantryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPantryView.swift; sourceTree = "<group>"; };
 		2BBC55202AE9A1D900D3043D /* AddPantryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPantryView.swift; sourceTree = "<group>"; };
 		2BBC55222AE9A1E800D3043D /* PantryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryView.swift; sourceTree = "<group>"; };
-		2BBC55242AE9A20700D3043D /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
 		2BBC55262AE9A21800D3043D /* WeekPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPlanView.swift; sourceTree = "<group>"; };
 		2BBC55282AE9A22400D3043D /* DayPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPlanView.swift; sourceTree = "<group>"; };
 		2BBC552A2AE9A23700D3043D /* MealPlanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanningView.swift; sourceTree = "<group>"; };
@@ -106,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				2BBC55342AE9C3A600D3043D /* Collections */,
-				2BBC55112AE9910C00D3043D /* Shopping */,
 				2BBC55102AE990F600D3043D /* Meal Planning */,
 				2BBC550F2AE990EE00D3043D /* Recipes */,
 				2BBC550E2AE990E100D3043D /* Pantry */,
@@ -155,16 +154,6 @@
 				2BBC55182AE9929400D3043D /* Model */,
 			);
 			path = "Meal Planning";
-			sourceTree = "<group>";
-		};
-		2BBC55112AE9910C00D3043D /* Shopping */ = {
-			isa = PBXGroup;
-			children = (
-				2BBC551D2AE992B100D3043D /* View */,
-				2BBC551C2AE992AC00D3043D /* ViewModel */,
-				2BBC551B2AE992A700D3043D /* Model */,
-			);
-			path = Shopping;
 			sourceTree = "<group>";
 		};
 		2BBC55122AE9912200D3043D /* Model */ = {
@@ -227,6 +216,7 @@
 		2BBC55182AE9929400D3043D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2B4DB7ED2B15331A00CA357A /* MealPlanModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,28 +234,6 @@
 				2BBC55262AE9A21800D3043D /* WeekPlanView.swift */,
 				2BBC55282AE9A22400D3043D /* DayPlanView.swift */,
 				2BBC552A2AE9A23700D3043D /* MealPlanningView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2BBC551B2AE992A700D3043D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2BBC551C2AE992AC00D3043D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		2BBC551D2AE992B100D3043D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2BBC55242AE9A20700D3043D /* ShoppingListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -391,7 +359,6 @@
 				2BBC556F2AFD6A1200D3043D /* Item.swift in Sources */,
 				2BBC55742B05CFFC00D3043D /* CollectionRecipeCardView.swift in Sources */,
 				2BBC55312AE9A26800D3043D /* RecipeDetailView.swift in Sources */,
-				2BBC55252AE9A20700D3043D /* ShoppingListView.swift in Sources */,
 				2BBC55332AE9C33B00D3043D /* AllCollectionsView.swift in Sources */,
 				2BBC55692AF44A1100D3043D /* RecipeListView.swift in Sources */,
 				2BBC556B2AF6CB2900D3043D /* CollectionCardView.swift in Sources */,
@@ -406,6 +373,7 @@
 				2BBC552F2AE9A25700D3043D /* RecipeSearchView.swift in Sources */,
 				2BBC553B2AF0020B00D3043D /* RecipeCardView.swift in Sources */,
 				2BBC55492AF40C9A00D3043D /* CollectionModel.swift in Sources */,
+				2B4DB7EE2B15331A00CA357A /* MealPlanModel.swift in Sources */,
 				2BBC556D2AF80F6500D3043D /* CollectionListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,19 +14,22 @@ struct AllCollectionsView: View {
         
         var body: some View {
          
-            CollectionListView()
-                .navigationTitle("Collections")
-                .toolbar {
-                    Button {
-                        isNewCollectionSelected.toggle()
-                    } label: {
-                        Image(systemName: "plus")
-                    }
+            NavigationStack{
+                CollectionListView()
+                    .navigationTitle("Collections")
+                    .toolbar {
+                        Button {
+                            isNewCollectionSelected.toggle()
+                        } label: {
+                            Image(systemName: "plus")
+                        }
 
-                }
-                .navigationDestination(isPresented: $isNewCollectionSelected) {
-                    CollectionCardView(collections: CollectionItem())
-                }
+                    }
+                    .navigationDestination(isPresented: $isNewCollectionSelected) {
+                        CollectionCardView(collections: CollectionItem())
+                    }
+            }
+                
         }
     
 }

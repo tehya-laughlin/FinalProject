@@ -18,7 +18,7 @@ struct RecipeHomeView: View {
     @Environment(\.modelContext)  var modelContext
     
     var body: some View {
-        NavigationStack{
+        NavigationView{
             
             VStack{
                 
@@ -36,14 +36,6 @@ struct RecipeHomeView: View {
                                 } label: {
                                     ItemCardView(urlString: "", typeName: "Favorites", size:size)
                                 }
-                                
-                                NavigationLink("Go to collections"){
-                                    AllCollectionsView()
-                                }
-                                .frame(width: size.width/4, height: size.width/4, alignment: .top)
-                                .padding(.leading, 10)
-                            
-                            
                             
                         }.frame(width: size.width, alignment: .leading)
                             .padding(.leading, 30)
