@@ -43,8 +43,8 @@ struct CollectionCardView: View {
                                 await collectionViewModel.getOneRecipeByUrl(url1: recipe.selfLink)
                             }
                         }
-                        .buttonStyle(CustomButton())
-                        NavigationLink(destination: RecipeDetailView(size: geometry.size, recipe: collectionViewModel.oneRecipe.recipe ?? Recipe())){
+                        //.buttonStyle(CustomButton())
+                        NavigationLink(destination: RecipeDetailForCollection(size: geometry.size, recipe: collectionViewModel.oneRecipe.recipe ?? Recipe())){
                             CollectionRecipeCardView(recipe: recipe, size: geometry.size)
                         }
                         

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 struct CallBody: Codable {
     
@@ -58,6 +59,7 @@ struct Recipe: Codable, Identifiable {
     var totalDaily: Nutrients?
     //var digest: [NutrientDigest]?
     var _links: Links?
+    
     
 
 }

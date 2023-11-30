@@ -1,4 +1,11 @@
 //
+//  RecipeDetailForCollection.swift
+//  FinalProject
+//
+//  Created by Tehya Laughlin on 11/29/23.
+//
+
+//
 //  RecipeDetailView.swift
 //  FinalProject
 //
@@ -8,22 +15,23 @@
 import SwiftUI
 import SwiftData
 
-struct RecipeDetailView: View {
+struct RecipeDetailForCollection: View {
     
     @Environment(\.modelContext) private var context
     @Query var collections: [CollectionItem]
     @Environment(\.openURL) var openURL
     var size: CGSize
-    var recipe: Recipe
+    var recipe: RecipeItem
     @State var pageToggle: Bool = false
-
+    
+    
     
     
     var body: some View {
         NavigationView{
             VStack{
                 ZStack{
-                    AsyncImage(url: URL(string: recipe.images?.REGULAR?.url ?? "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg"))
+                    AsyncImage(url: URL(string: recipe.imageLink ))
                         .scaleEffect(CGSize(width: 1.4, height: 1.4))
                         .frame(width: size.width, height: 256)
                         .clipped()
@@ -45,12 +53,12 @@ struct RecipeDetailView: View {
                 
             
                     VStack(alignment: .leading){
-                        Text("\(recipe.label ?? "No Label")")
+                        Text("\(recipe.label )")
                             .font(.title)
                             .offset(CGSize(width: 0.0, height: -50.0))
                             .padding(.leading, 30)
                         
-                        Text("yield: \(recipe.yield ?? 0)")
+                        Text("yield: \(recipe.recipeYield )")
                             .font(.headline)
                             .padding(.leading, 30)
                             .offset(CGSize(width: 0.0, height: -45.0))
@@ -63,7 +71,7 @@ struct RecipeDetailView: View {
                                     .font(.headline)
                                     .padding(.leading, 30)
                                 
-                                List(recipe.ingredients ?? [Ingredient()]){
+                                List(recipe.recipeIngredients ){
                                     ingredient in
                                     
                                     Text("\(ingredient.text ?? "No Ingredient")")
@@ -84,13 +92,13 @@ struct RecipeDetailView: View {
                                     .padding(.leading, 30)
                                 
                                 List{
-                                    Text("Calories: \(recipe.calories ?? 0)")
-                                    Text("Time: \(recipe.totalTime ?? 0)")
-                                    ForEach(recipe.dietLabels ?? ["No diet labels"], id: \.self) {
+                                    Text("Calories: \(recipe.recipeCalories )")
+                                    Text("Time: \(recipe.recipeTotalTime )")
+                                    ForEach(recipe.recipeDietLabels , id: \.self) {
                                         label in
                                         Text("\(label)")
                                     }
-                                    ForEach(recipe.healthLabels ?? ["No health labels"], id: \.self) {
+                                    ForEach(recipe.recipeHealthLabels , id: \.self) {
                                         label in
                                         Text("\(label)")
                                     }
@@ -108,7 +116,7 @@ struct RecipeDetailView: View {
                 .frame(height: size.height * 0.69)
                 
                 Button("Cook this"){
-                    openURL(URL(string: recipe.url!)!)
+                    openURL(URL(string: recipe.recipeLinkRecipe)!)
                 }
                 .buttonStyle(CustomButton())
                 .offset(CGSize(width: 0.0, height: -110.0))
@@ -121,10 +129,10 @@ struct RecipeDetailView: View {
                         ForEach(collections){
                             collection in
                             Button(collection.name){
-                                saveNewItem(collection: collection)
+                                //saveNewItem(collection: collection)
                             }
                         }
-                        
+                        //some function to open alert to give option of adding to collection or meal plan
                     }label:{
                         ZStack{
                             Circle().frame(width:45, height: 45)
@@ -142,17 +150,7 @@ struct RecipeDetailView: View {
             
     }
     
-    
-    func saveNewItem(collection: CollectionItem) {
-        let im = recipe.images ?? Images()
-        let imType = im.SMALL ?? ImageInfo(url: "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg", width: 0, height: 0)
-        let imTypeReg = im.REGULAR ?? ImageInfo(url: "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg", width: 0, height: 0)
-        let lnk = recipe._links
-        let recipe2 = RecipeItem(label: recipe.label ?? "No Label", imageLink: imType.url, selfLink: lnk?.`self`.href ?? "https://api.edamam.com/api/recipes/v2/8275bb28647abcedef0baaf2dcf34f8b?type=public&app_id=243ff47b&app_key=71457942cb487b513a099f36f458b05a", reg: imTypeReg.url, yield: recipe.yield ?? 0, ingredients: recipe.ingredients ?? [Ingredient()], calories: recipe.calories ?? 0.0, totalTime: recipe.totalTime ?? 0, dietLabels: recipe.dietLabels ?? ["No diet labels"], healthLabels: recipe.healthLabels ?? ["No health labels"], recipeLink: recipe.source ?? "https://www.google.com/" )
-        collection.collection.append(recipe2)
-    }
+   
     
     
 }
-
-

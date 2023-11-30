@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B4DB7EE2B15331A00CA357A /* MealPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DB7ED2B15331A00CA357A /* MealPlanModel.swift */; };
+		2B4DB7F22B180F0B00CA357A /* RecipeDetailForCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DB7F12B180F0B00CA357A /* RecipeDetailForCollection.swift */; };
 		2BBC54F92AE6CE0E00D3043D /* FinalProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC54F82AE6CE0E00D3043D /* FinalProjectApp.swift */; };
 		2BBC54FB2AE6CE0E00D3043D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC54FA2AE6CE0E00D3043D /* ContentView.swift */; };
 		2BBC54FF2AE6CE0F00D3043D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC54FE2AE6CE0F00D3043D /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		2B4DB7ED2B15331A00CA357A /* MealPlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanModel.swift; sourceTree = "<group>"; };
+		2B4DB7F12B180F0B00CA357A /* RecipeDetailForCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailForCollection.swift; sourceTree = "<group>"; };
 		2BBC54F52AE6CE0E00D3043D /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBC54F82AE6CE0E00D3043D /* FinalProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectApp.swift; sourceTree = "<group>"; };
 		2BBC54FA2AE6CE0E00D3043D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				2BBC556A2AF6CB2900D3043D /* CollectionCardView.swift */,
 				2BBC556C2AF80F6500D3043D /* CollectionListView.swift */,
 				2BBC55732B05CFFC00D3043D /* CollectionRecipeCardView.swift */,
+				2B4DB7F12B180F0B00CA357A /* RecipeDetailForCollection.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				2BBC55392AE9C40B00D3043D /* CollectionView.swift in Sources */,
 				2BBC55212AE9A1D900D3043D /* AddPantryView.swift in Sources */,
 				2BBC552D2AE9A24C00D3043D /* RecipeHomeView.swift in Sources */,
+				2B4DB7F22B180F0B00CA357A /* RecipeDetailForCollection.swift in Sources */,
 				2BBC551F2AE9A1C200D3043D /* InPantryView.swift in Sources */,
 				2BBC552B2AE9A23700D3043D /* MealPlanningView.swift in Sources */,
 				2BBC54FB2AE6CE0E00D3043D /* ContentView.swift in Sources */,
