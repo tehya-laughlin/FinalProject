@@ -23,7 +23,7 @@ struct ContentView: View {
                 RecipeHomeView(size: geometry.size).tabItem{
                     Label("Recipes", systemImage: "book.pages.fill")
                 }
-                MealPlanningView().tabItem{
+                MealPlanningView(size: geometry.size).tabItem{
                     Label("Meal Plan", systemImage: "calendar")
                 }
                 PantryView(size: geometry.size).tabItem{

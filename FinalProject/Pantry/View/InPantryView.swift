@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Algorithms
 
 struct InPantryView: View {
     @Environment(\.modelContext) var modelContext
@@ -21,7 +22,7 @@ struct InPantryView: View {
                 
                 if(ingredients.isEmpty){
                     VStack{
-                        Text("Your pantry is empty")
+                        Text("Your shopping list is empty")
                             .font(.title3)
                         Image("Pantry")
                             .resizable()
@@ -34,13 +35,15 @@ struct InPantryView: View {
                         ingredient in
                         Text("\(ingredient.food)")
                     }
+                    .onDelete(perform: deleteIngredients)
                 }
+                
                 
             }
         }
     }
     
-    func deleteIngredeitns(_ indexSet: IndexSet) {
+    func deleteIngredients(_ indexSet: IndexSet) {
         for index in indexSet {
             let ingredient = ingredients[index]
             modelContext.delete(ingredient)
@@ -48,4 +51,5 @@ struct InPantryView: View {
     }
     
 }
+
 

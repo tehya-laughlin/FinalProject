@@ -9,13 +9,12 @@ import Foundation
 import SwiftData
 
 @Model
-class Item: Identifiable{
-    var id: Int { return UUID().hashValue }
-    var foodid: String
+class Item: Identifiable, Equatable{
+    @Attribute(.unique) var id: String
     var food: String
     
-    init(fid: String = "", f: String = "") {
-        foodid = fid
+    init(f: String = "", id: String) {
         food = f
+        self.id = id
     }
 }

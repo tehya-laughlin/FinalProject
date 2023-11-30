@@ -31,12 +31,12 @@ struct PantryView: View {
                     pageToggle = true
                 } label: {
                     if(pageToggle) {
-                        Text("Current pantry")
+                        Text("Shopping list")
                             .font(.title3)
                             .fontWeight(.bold)
                             
                     } else {
-                        Text("Current pantry")
+                        Text("Shopping list")
                             .font(.title3)
                             .fontWeight(.regular)
                             
@@ -49,12 +49,12 @@ struct PantryView: View {
                     pageToggle = false
                 } label: {
                     if(pageToggle) {
-                        Text("Add to pantry")
+                        Text("Add to shopping list")
                             .font(.title3)
                             .fontWeight(.regular)
                            
                     } else {
-                        Text("Add to pantry")
+                        Text("Add to shopping list")
                             .font(.title3)
                             .fontWeight(.bold)
                           

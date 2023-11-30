@@ -16,7 +16,7 @@ struct RecipeDetailView: View {
     var size: CGSize
     var recipe: Recipe
     @State var pageToggle: Bool = false
-
+    @Query var mealPlans: [MealPlan]
     
     
     var body: some View {
@@ -121,10 +121,17 @@ struct RecipeDetailView: View {
                         ForEach(collections){
                             collection in
                             Button(collection.name){
-                                saveNewItem(collection: collection)
+                                saveNewItemCollection(collection: collection)
                             }
                         }
-                        //some function to open alert to give option of adding to collection or meal plan
+                        if(!mealPlans.isEmpty){
+                            ForEach(mealPlans[0].weekPlan.indices){
+                                index in
+                                Button(mealPlans[0].weekPlan[index].name){
+                                    saveNewItemMealPlan(dayPlanIndex: index)
+                                }
+                            }
+                        }
                     }label:{
                         ZStack{
                             Circle().frame(width:45, height: 45)
@@ -143,7 +150,7 @@ struct RecipeDetailView: View {
     }
     
     
-    func saveNewItem(collection: CollectionItem) {
+    func saveNewItemCollection(collection: CollectionItem) {
         let im = recipe.images ?? Images()
         let imType = im.SMALL ?? ImageInfo(url: "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg", width: 0, height: 0)
         let lnk = recipe._links
@@ -151,6 +158,17 @@ struct RecipeDetailView: View {
         let recipe = RecipeItem(label: recipe.label ?? "Recipe", imageLink: imType.url, selfLink: lnk?.`self`.href ?? "https://api.edamam.com/api/recipes/v2/8275bb28647abcedef0baaf2dcf34f8b?type=public&app_id=243ff47b&app_key=71457942cb487b513a099f36f458b05a")
         collection.collection.append(recipe)
     }
+    
+    func saveNewItemMealPlan(dayPlanIndex: Int) {
+        let im = recipe.images ?? Images()
+        let imType = im.SMALL ?? ImageInfo(url: "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg", width: 0, height: 0)
+        let lnk = recipe._links
+        print(recipe._links?.`self`.href)
+        let recipe = RecipeItem(label: recipe.label ?? "Recipe", imageLink: imType.url, selfLink: lnk?.`self`.href ?? "https://api.edamam.com/api/recipes/v2/8275bb28647abcedef0baaf2dcf34f8b?type=public&app_id=243ff47b&app_key=71457942cb487b513a099f36f458b05a")
+        mealPlans[0].weekPlan[dayPlanIndex].recipes.append(recipe)
+    }
+    
+    
     
     
 }

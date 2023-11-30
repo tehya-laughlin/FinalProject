@@ -6,13 +6,32 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct WeekPlanView: View {
+    
+    @Environment(\.modelContext) var modelContext
+    @Query var mealPlans: [MealPlan]
+    var size: CGSize
+    
     var body: some View {
-        Text("Week Planner")
+        NavigationStack{
+            
+            
+                if(!mealPlans.isEmpty){
+                    ScrollView{
+                        ForEach(mealPlans[0].weekPlan){ dayPlan in
+                            NavigationLink(destination: DayPlanView(size: size, dayPlan: dayPlan)){
+                                DayCard(size: size, dayPlan: dayPlan)
+                            }
+                        }
+                    }
+                }
+            
+            
+        }
+        
     }
 }
 
-#Preview {
-    WeekPlanView()
-}

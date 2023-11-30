@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+
 struct AddPantryView: View {
     
     @Environment(\.modelContext) var modelContext
@@ -21,9 +22,9 @@ struct AddPantryView: View {
         VStack{
             Button("Load Ingredients") {
                 Task{
-                    print("pre-call")
+               
                     await pantryViewModel.getCall(searchValue: searchQuery)
-                    print("post-call")
+                 
                 }
             }
             .buttonStyle(CustomButton())
@@ -38,7 +39,12 @@ struct AddPantryView: View {
                         Text("\(ingredient.food.knownAs)")
                         Spacer()
                         Button("Add to pantry"){
-                            addIngredient(im: Item(fid: ingredient.food.foodId, f: ingredient.food.label))
+                            Task{
+                                if(!ingredients.contains(Item(f: ingredient.food.label, id: ingredient.food.foodId))){
+                                    print(ingredients.contains(Item( f: ingredient.food.label, id: ingredient.food.foodId)))
+                                    addIngredient(im: Item(f: ingredient.food.label, id: ingredient.food.foodId))
+                                }
+                            }
                         }
                     }
                 }
@@ -49,7 +55,12 @@ struct AddPantryView: View {
                         Text("\(ingredient.food.knownAs)")
                         Spacer()
                         Button("Add to pantry"){
-                            addIngredient(im: Item(fid: ingredient.food.foodId, f: ingredient.food.label))
+                            Task{
+                                if(!ingredients.contains(Item(f: ingredient.food.label, id: ingredient.food.foodId))){
+                                    print(ingredients.contains(Item(f: ingredient.food.label, id: ingredient.food.foodId)))
+                                    addIngredient(im: Item(f: ingredient.food.label, id: ingredient.food.foodId))
+                                }
+                            }
                         }
                     }
                 }
@@ -61,7 +72,6 @@ struct AddPantryView: View {
     func addIngredient(im: Item) {
         let ingredient = im
         modelContext.insert(ingredient)
-        ingredients = [ingredient]
     }
 }
 
