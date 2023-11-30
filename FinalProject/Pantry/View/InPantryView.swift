@@ -7,7 +7,6 @@
 
 import SwiftUI
 import SwiftData
-import Algorithms
 
 struct InPantryView: View {
     @Environment(\.modelContext) var modelContext
