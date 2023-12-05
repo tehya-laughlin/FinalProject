@@ -38,13 +38,13 @@ struct CollectionCardView: View {
                 
                 List{
                     ForEach(collections.collection){ recipe in
-                        Button("Load this recipe"){
-                            Task{
-                                await collectionViewModel.getOneRecipeByUrl(url1: recipe.selfLink)
-                            }
-                        }
+                        //Button("Load this recipe"){
+                           // Task{
+                            //    await collectionViewModel.getOneRecipeByUrl(url1: recipe.selfLink)
+                           // }
+                        //}
                         //.buttonStyle(CustomButton())
-                        NavigationLink(destination: RecipeDetailForCollection(size: geometry.size, recipe: collectionViewModel.oneRecipe.recipe ?? Recipe())){
+                        NavigationLink(destination: RecipeDetailForCollection(size: geometry.size, recipe: recipe)){
                             CollectionRecipeCardView(recipe: recipe, size: geometry.size)
                         }
                         

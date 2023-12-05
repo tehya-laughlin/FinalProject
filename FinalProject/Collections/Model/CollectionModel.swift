@@ -35,7 +35,7 @@ class RecipeItem {
     var recipeHealthLabels: [String]
     var recipeLinkRecipe: String
     
-    init(label: String, imageLink: String, selfLink: String, reg: String , yield: Int, ingredients: [Ingredient], calories: Double, totalTime: Int, dietLabels: [String], healthLabels: [String], recipeLink: String) {
+    init(label: String, imageLink: String, selfLink: String, reg: String , yield: Int, ingredients: [Ingredient], calories: Double = 0.0, totalTime: Int, dietLabels: [String], healthLabels: [String], recipeLink: String) {
         self.label = label
         self.imageLink = imageLink
         self.selfLink = selfLink
