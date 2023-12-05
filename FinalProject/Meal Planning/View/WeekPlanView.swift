@@ -19,7 +19,7 @@ struct WeekPlanView: View {
         NavigationStack{
             
             
-                if(!mealPlans.isEmpty){
+            if(!mealPlans.isEmpty){
                     ScrollView{
                         ForEach(mealPlans[0].weekPlan){ dayPlan in
                             NavigationLink(destination: DayPlanView(size: size, dayPlan: dayPlan)){

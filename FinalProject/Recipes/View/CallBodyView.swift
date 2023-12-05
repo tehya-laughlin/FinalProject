@@ -47,7 +47,7 @@ struct CallBodyView: View {
             
             List{
                 ForEach(appViewModel.call.hits ?? [RecipeInfo(recipe: Recipe())]) { recipeInfo in
-                    NavigationLink(destination: RecipeDetailView(size:size, recipe: recipeInfo.recipe ?? Recipe())){
+                    NavigationLink(destination: RecipeDetailView(size:size,recipeInfo: recipeInfo)){
                         RecipeCardView(recipe: recipeInfo.recipe ?? Recipe(), size: size)
                     }
                 }

@@ -11,7 +11,10 @@ struct DayPlanView: View {
     
     @Environment(\.modelContext) var modelContext
     var size: CGSize
+    
+    
     @Bindable var dayPlan: DayPlan
+    //@Bindable var mealPlan: MealPlan
     
     @ObservedObject var collectionViewModel = CollectionViewModel()
     
@@ -27,7 +30,7 @@ struct DayPlanView: View {
                             await collectionViewModel.getOneRecipeByUrl(url1: recipe.selfLink)
                         }
                     }
-                    .buttonStyle(CustomButton())
+                    //.buttonStyle(CustomButton())
                     NavigationLink(destination: RecipeDetailView(size: size, recipe: collectionViewModel.oneRecipe.recipe ?? Recipe())){
                         CollectionRecipeCardView(recipe: recipe, size: size)
                     }
@@ -46,6 +49,7 @@ struct DayPlanView: View {
         for index in indexSet {
             let recipe = dayPlan.recipes[index]
             modelContext.delete(recipe)
+            //dayPlan.remove(at: index)
         }
     }
     

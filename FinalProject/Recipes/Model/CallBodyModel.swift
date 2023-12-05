@@ -27,6 +27,7 @@ struct CallBody: Codable {
 struct RecipeInfo: Codable, Identifiable {
     var id: Int { return UUID().hashValue }
     var recipe: Recipe?
+    var _links: Links?
 }
 
 
@@ -57,13 +58,14 @@ struct Recipe: Codable, Identifiable {
     var totalNutrients: Nutrients?
     var totalDaily: Nutrients?
     //var digest: [NutrientDigest]?
-    var _links: Links?
     
-
 }
 
 struct Links: Codable {
-    var `self`: LinkInfo
+    var linkInfo: LinkInfo
+    enum CodingKeys: String, CodingKey {
+        case linkInfo = "self"
+    }
 }
 
 struct Link2: Codable {

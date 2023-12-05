@@ -21,7 +21,7 @@ class CollectionItem: Identifiable {
     
 }
 
-@Model
+/*@Model
 class RecipeItem {
     var label: String
     var imageLink: String
@@ -31,6 +31,37 @@ class RecipeItem {
         self.label = label
         self.imageLink = imageLink
         self.selfLink = selfLink
+    }
+    
+}*/
+
+@Model
+class RecipeItem {
+    var label: String
+    var imageLink: String
+    var selfLink: String
+
+    var recipeRegularImage: String
+    var recipeYield: Int
+    var recipeIngredients: [Ingredient]
+    var recipeCalories: Double
+    var recipeTotalTime: Int
+    var recipeDietLabels: [String]
+    var recipeHealthLabels: [String]
+    var recipeLinkRecipe: String
+    
+    init(label: String, imageLink: String, selfLink: String, reg: String , yield: Int, ingredients: [Ingredient], calories: Double, totalTime: Int, dietLabels: [String], healthLabels: [String], recipeLink: String) {
+        self.label = label
+        self.imageLink = imageLink
+        self.selfLink = selfLink
+        recipeRegularImage = reg
+        recipeYield = yield
+        recipeIngredients = ingredients
+        recipeCalories = calories
+        recipeDietLabels = dietLabels
+        recipeHealthLabels = healthLabels
+        recipeLinkRecipe = recipeLink
+        recipeTotalTime = totalTime
     }
     
 }

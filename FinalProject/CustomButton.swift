@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct CustomButton: ButtonStyle {
+struct CustomButton: ButtonStyle{
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(EdgeInsets(top: 6, leading: 10, bottom: 6, trailing: 10))
