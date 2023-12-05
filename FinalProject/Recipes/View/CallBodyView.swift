@@ -43,18 +43,17 @@ struct CallBodyView: View {
                     .frame(width: size.width/3)
                     .padding(.leading, 10)
                 }
-                Text("\(appViewModel.call.from ?? 0) to \(appViewModel.call.to ?? 0)")
             }
             
-            ScrollView{
-                Spacer()
+            List{
                 ForEach(appViewModel.call.hits ?? [RecipeInfo(recipe: Recipe())]) { recipeInfo in
                     NavigationLink(destination: RecipeDetailView(size:size, recipe: recipeInfo.recipe ?? Recipe())){
                         RecipeCardView(recipe: recipeInfo.recipe ?? Recipe(), size: size)
                     }
-                    
                 }
+                .listRowSeparator(.hidden)
             }
+            .listStyle(.plain)
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             .frame(height:size.height*0.62)
             

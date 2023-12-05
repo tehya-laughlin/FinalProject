@@ -58,17 +58,18 @@ struct RecipeDetailView: View {
                         
                         if(!pageToggle){
                             VStack(alignment: .leading){
-                                
-                                Text("Ingredients")
-                                    .font(.headline)
-                                    .padding(.leading, 30)
-                                
-                                List(recipe.ingredients ?? [Ingredient()]){
-                                    ingredient in
-                                    
-                                    Text("\(ingredient.text ?? "No Ingredient")")
-                                    
+                                List{
+                                    Section {
+                                        ForEach(recipe.ingredients ?? [Ingredient()]){
+                                            ingredient in
+                                            Text("\(ingredient.text ?? "No Ingredient")")
+                                        }
+                                        .listRowSeparator(.hidden)
+                                    } header: {
+                                        Text("Ingredients")
+                                    }
                                 }
+                                .listStyle(.plain)
                                 
                                 
                                 Spacer()
@@ -79,23 +80,36 @@ struct RecipeDetailView: View {
                         } else {
                             VStack(alignment: .leading){
                                 
-                                Text("Information")
-                                    .font(.headline)
-                                    .padding(.leading, 30)
-                                
                                 List{
-                                    Text("Calories: \(recipe.calories ?? 0)")
-                                    Text("Time: \(recipe.totalTime ?? 0)")
-                                    ForEach(recipe.dietLabels ?? ["No diet labels"], id: \.self) {
-                                        label in
-                                        Text("\(label)")
-                                    }
-                                    ForEach(recipe.healthLabels ?? ["No health labels"], id: \.self) {
-                                        label in
-                                        Text("\(label)")
+                                    
+                                    Section {
+                                        Text("Calories: \(recipe.calories ?? 0)")
+                                        Text("Time: \(recipe.totalTime ?? 0)")
+                                    } header: {
+                                        Text("Information")
                                     }
                                     
-                                }.padding(.bottom, 20)
+                                    Section {
+                                        ForEach(recipe.dietLabels ?? ["No diet labels"], id: \.self) {
+                                            label in
+                                            Text("\(label)")
+                                        }
+                                        .listRowSeparator(.hidden)
+                                    } header: {
+                                        Text("Diet labels")
+                                    }
+                                    
+                                    Section {
+                                        ForEach(recipe.healthLabels ?? ["No health labels"], id: \.self) {
+                                            label in
+                                            Text("\(label)")
+                                        }
+                                        .listRowSeparator(.hidden)
+                                    } header: {
+                                        Text("Health labels")
+                                    }
+                                }
+                                .listStyle(.plain)
                                 
                                 Spacer()
                             }

@@ -18,7 +18,7 @@ struct RecipeHomeView: View {
     @Environment(\.modelContext)  var modelContext
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             
             VStack{
                 
@@ -83,12 +83,7 @@ struct RecipeHomeView: View {
                 
                 Spacer()
             }.searchable(text: $searchQuery)
-               // .padding(.top, 16)
-               
-                
-               
-            
-        }.toolbar(.visible, for: .tabBar)
+        }
        
     }
         
