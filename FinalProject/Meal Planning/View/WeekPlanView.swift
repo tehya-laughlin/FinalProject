@@ -12,25 +12,20 @@ import SwiftData
 struct WeekPlanView: View {
     
     @Environment(\.modelContext) var modelContext
-    @Query var mealPlans: [MealPlan]
+    @Query var mealPlans: [DayPlan]
     var size: CGSize
     
     var body: some View {
-        NavigationStack{
-            
-            
-            if(!mealPlans.isEmpty){
-                    ScrollView{
-                        ForEach(mealPlans[0].weekPlan){ dayPlan in
-                            NavigationLink(destination: DayPlanView(size: size, dayPlan: dayPlan)){
-                                DayCard(size: size, dayPlan: dayPlan)
-                            }
-                        }
-                    }
+        List{
+            ForEach(mealPlans){ dayPlan in
+                NavigationLink(destination: DayPlanView(dayPlan: dayPlan)){
+                    DayCard(size: size, dayPlan: dayPlan)
                 }
-            
-            
+            }
+            .listRowSeparator(.hidden)
         }
+        .listStyle(.plain)
+ 
         
     }
 }

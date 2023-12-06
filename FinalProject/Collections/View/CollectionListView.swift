@@ -77,8 +77,8 @@ struct CollectionListView: View {
                             .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10))
                             
                         }
-                    }
-                    .onDelete(perform: deleteCollections)
+                    }.onDelete(perform: deleteCollections)
+                    .listRowSeparator(.hidden)
                     .navigationDestination(isPresented: $didSelectCollection) {
                         CollectionCardView(collections: selectedCollection ?? CollectionItem())
                     }

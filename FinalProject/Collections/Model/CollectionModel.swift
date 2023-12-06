@@ -21,8 +21,9 @@ class CollectionItem: Identifiable {
     
 }
 
-/*@Model
-class RecipeItem {
+@Model
+class RecipeItem: Identifiable {
+    var id: Int { return UUID().hashValue }
     var label: String
     var imageLink: String
     var selfLink: String
@@ -33,8 +34,9 @@ class RecipeItem {
         self.selfLink = selfLink
     }
     
-}*/
+}
 
+/*
 @Model
 class RecipeItem {
     var label: String
@@ -65,4 +67,4 @@ class RecipeItem {
     }
     
 }
-
+*/

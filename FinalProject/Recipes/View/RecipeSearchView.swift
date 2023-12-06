@@ -73,18 +73,8 @@ struct RecipeSearchView: View {
     @State  var selectedDish: FilterDishType
     
     var body: some View {
-        NavigationView{
-            VStack{
-    
-                
-                CallBodyView(appViewModel: appViewModel, size: size, searchQuery: searchQuery, selectedMealType: $selectedMealType, selectedCuisine: $selectedCuisine, selectedDish: $selectedDish)
-                    .offset(CGSize(width: 0.0, height: -75.0))
-                    .frame(height: size.height*5/7)
-                
-                
-                
-            }.toolbar{
-                
+        VStack{
+            HStack{
                 Picker("Meal Type", selection: $selectedMealType) {
                     Text("MealType").tag(FilterMealType.none)
                     Text("Breakfast").tag(FilterMealType.breakfast)
@@ -94,6 +84,7 @@ struct RecipeSearchView: View {
                     Text("Teatime").tag(FilterMealType.teatime)
                     
                 }
+                .font(.caption)
                 
                 Picker("Cuisine Type", selection: $selectedCuisine) {
                     Text("Cuisine Type").tag(FilterCuisineType.none)
@@ -116,7 +107,8 @@ struct RecipeSearchView: View {
                     Text("South American").tag(FilterCuisineType.southAmerican)
                     Text("South East Asian").tag(FilterCuisineType.southEastAsian)
                 }
-
+                .font(.caption)
+                
                 Picker("Dish Type", selection: $selectedDish) {
                     Text("Dish Type").tag(FilterDishType.none)
                     Text("Bread").tag(FilterDishType.bread)
@@ -132,11 +124,18 @@ struct RecipeSearchView: View {
                     Text("Soup").tag(FilterDishType.soup)
                     Text("Sandwiches").tag(FilterDishType.sandwiches)
                 }
-                
-                
+                .font(.caption)
             }
+            
+            
+            CallBodyView(appViewModel: appViewModel, size: size, searchQuery: searchQuery, selectedMealType: $selectedMealType, selectedCuisine: $selectedCuisine, selectedDish: $selectedDish)
+               // .offset(CGSize(width: 0.0, height: -75.0))
+                .frame(height: size.height*11/14)
+            
+            
+            
         }
-       
+
     }
 }
 

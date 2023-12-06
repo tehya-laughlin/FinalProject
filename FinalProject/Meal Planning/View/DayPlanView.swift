@@ -10,46 +10,57 @@ import SwiftUI
 struct DayPlanView: View {
     
     @Environment(\.modelContext) var modelContext
-    var size: CGSize
-    
-    
+    //var size: CGSize
     @Bindable var dayPlan: DayPlan
-    //@Bindable var mealPlan: MealPlan
+   
     
-    @ObservedObject var collectionViewModel = CollectionViewModel()
+    @ObservedObject private var mealPlanViewModel = MealPlanViewModel()
     
     
     var body: some View {
-        
-        VStack{
-            
-            List{
-                ForEach(dayPlan.recipes){ recipe in
-                    Button("Load this recipe"){
-                        Task{
-                            await collectionViewModel.getOneRecipeByUrl(url1: recipe.selfLink)
-                        }
-                    }
-                    //.buttonStyle(CustomButton())
-                    NavigationLink(destination: RecipeDetailView(size: size, recipe: collectionViewModel.oneRecipe.recipe ?? Recipe())){
-                        CollectionRecipeCardView(recipe: recipe, size: size)
-                    }
-                    
-                }.onDelete(perform: deleteRecipeInDayPlan)
+        GeometryReader{ geometry in
+            VStack{
+                
+                List{
+                    ForEach(dayPlan.recipes){ recipe in
+                        
+                         Button("Load"){
+                             Task{
+                             await mealPlanViewModel.getOneRecipeByUrl(recipe: recipe)
+                             }
+                         }
+                         .buttonStyle(CustomButton())
+                         NavigationLink(destination: RecipeDetailView(size: geometry.size, recipeInfo: mealPlanViewModel.oneRecipe)) {
+                             CollectionRecipeCardView(recipe: recipe, size: geometry.size)
+                         }
+                        
+                    }.onDelete(perform: deleteRecipeInDayPlan)
+                    .listRowSeparator(.hidden)
+                }
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
+            .navigationTitle("\(dayPlan.name)")
+            .toolbar{
+                NavigationLink(destination: RecipeHomeView(size: geometry.size)){
+                    Image(systemName: "plus")
+                        .foregroundColor(Color("Main"))
+                        .scaleEffect(CGSize(width: 1.3, height: 1.3))
+                }
+                   
+            }
+            
         }
-        .navigationTitle("\(dayPlan.name)")
         
     }
+
     
     
     // MOVE ME TO A VIEW MODEL!!!!!
     func deleteRecipeInDayPlan(_ indexSet: IndexSet) {
         for index in indexSet {
-            let recipe = dayPlan.recipes[index]
-            modelContext.delete(recipe)
-            //dayPlan.remove(at: index)
+            //let recipe = dayPlan.recipes[index]
+            //modelContext.delete(recipe)
+            dayPlan.recipes.remove(at: index)
         }
     }
     

@@ -10,6 +10,7 @@
 		2B4DB7EE2B15331A00CA357A /* MealPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DB7ED2B15331A00CA357A /* MealPlanModel.swift */; };
 		2B4DB7F42B18E97600CA357A /* DayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DB7F32B18E97600CA357A /* DayCard.swift */; };
 		2B4DB7F72B1903FC00CA357A /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 2B4DB7F62B1903FC00CA357A /* Algorithms */; };
+		2B4DB7FB2B2004F300CA357A /* MealPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DB7FA2B2004F300CA357A /* MealPlanViewModel.swift */; };
 		2BBC54F92AE6CE0E00D3043D /* FinalProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC54F82AE6CE0E00D3043D /* FinalProjectApp.swift */; };
 		2BBC54FB2AE6CE0E00D3043D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC54FA2AE6CE0E00D3043D /* ContentView.swift */; };
 		2BBC54FF2AE6CE0F00D3043D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC54FE2AE6CE0F00D3043D /* Assets.xcassets */; };
@@ -27,7 +28,6 @@
 		2BBC552F2AE9A25700D3043D /* RecipeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC552E2AE9A25700D3043D /* RecipeSearchView.swift */; };
 		2BBC55312AE9A26800D3043D /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55302AE9A26800D3043D /* RecipeDetailView.swift */; };
 		2BBC55332AE9C33B00D3043D /* AllCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55322AE9C33B00D3043D /* AllCollectionsView.swift */; };
-		2BBC55392AE9C40B00D3043D /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55382AE9C40B00D3043D /* CollectionView.swift */; };
 		2BBC553B2AF0020B00D3043D /* RecipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC553A2AF0020B00D3043D /* RecipeCardView.swift */; };
 		2BBC55412AF0251E00D3043D /* IngredientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55402AF0251E00D3043D /* IngredientModel.swift */; };
 		2BBC55452AF0253000D3043D /* PantryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC55442AF0253000D3043D /* PantryViewModel.swift */; };
@@ -45,6 +45,7 @@
 /* Begin PBXFileReference section */
 		2B4DB7ED2B15331A00CA357A /* MealPlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanModel.swift; sourceTree = "<group>"; };
 		2B4DB7F32B18E97600CA357A /* DayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCard.swift; sourceTree = "<group>"; };
+		2B4DB7FA2B2004F300CA357A /* MealPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MealPlanViewModel.swift; path = "FinalProject/Meal Planning/MealPlanViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		2BBC54F52AE6CE0E00D3043D /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBC54F82AE6CE0E00D3043D /* FinalProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectApp.swift; sourceTree = "<group>"; };
 		2BBC54FA2AE6CE0E00D3043D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		2BBC552E2AE9A25700D3043D /* RecipeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchView.swift; sourceTree = "<group>"; };
 		2BBC55302AE9A26800D3043D /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		2BBC55322AE9C33B00D3043D /* AllCollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollectionsView.swift; sourceTree = "<group>"; };
-		2BBC55382AE9C40B00D3043D /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		2BBC553A2AF0020B00D3043D /* RecipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardView.swift; sourceTree = "<group>"; };
 		2BBC55402AF0251E00D3043D /* IngredientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientModel.swift; sourceTree = "<group>"; };
 		2BBC55442AF0253000D3043D /* PantryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryViewModel.swift; sourceTree = "<group>"; };
@@ -228,6 +228,7 @@
 		2BBC55192AE9929C00D3043D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2B4DB7FA2B2004F300CA357A /* MealPlanViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -265,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				2BBC55322AE9C33B00D3043D /* AllCollectionsView.swift */,
-				2BBC55382AE9C40B00D3043D /* CollectionView.swift */,
 				2BBC556A2AF6CB2900D3043D /* CollectionCardView.swift */,
 				2BBC556C2AF80F6500D3043D /* CollectionListView.swift */,
 				2BBC55732B05CFFC00D3043D /* CollectionRecipeCardView.swift */,
@@ -358,9 +358,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BBC554B2AF4216300D3043D /* CustomButton.swift in Sources */,
-				2BBC55392AE9C40B00D3043D /* CollectionView.swift in Sources */,
 				2BBC55212AE9A1D900D3043D /* AddPantryView.swift in Sources */,
 				2BBC552D2AE9A24C00D3043D /* RecipeHomeView.swift in Sources */,
+				2B4DB7FB2B2004F300CA357A /* MealPlanViewModel.swift in Sources */,
 				2BBC551F2AE9A1C200D3043D /* InPantryView.swift in Sources */,
 				2BBC552B2AE9A23700D3043D /* MealPlanningView.swift in Sources */,
 				2BBC54FB2AE6CE0E00D3043D /* ContentView.swift in Sources */,

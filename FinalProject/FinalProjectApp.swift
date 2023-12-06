@@ -15,7 +15,7 @@ struct FinalProjectApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Item.self, CollectionItem.self, MealPlan.self])
+        .modelContainer(for: [Item.self, CollectionItem.self, DayPlan.self])
         
      
     }

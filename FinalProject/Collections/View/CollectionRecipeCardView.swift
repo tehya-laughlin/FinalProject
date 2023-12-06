@@ -41,7 +41,7 @@ struct CollectionRecipeCardView: View {
         .background(.white)
         .cornerRadius(15)
         .shadow(radius: 5)
-        .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10))
+        .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 0))
         
         
         

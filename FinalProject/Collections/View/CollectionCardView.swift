@@ -21,6 +21,40 @@ struct CollectionCardView: View {
     var body: some View {
         GeometryReader{ geometry in
             VStack {
+                VStack(alignment: .leading){
+                   
+                    
+                    Text("Collection Name")
+                        .frame(alignment: .leading)
+                        .font(.subheadline)
+                    TextField("Name", text: $collections.name)
+                        .padding(EdgeInsets(top: 2, leading: 10, bottom: 2, trailing: 0))
+                        .border(Color("Secondary"), width: 2)
+                    
+
+                        
+                }
+                    
+                
+                List{
+                    ForEach(collections.collection){ recipe in
+                            Button("Load"){
+                                Task{
+                                    await collectionViewModel.getOneRecipeByUrl(url1: recipe.selfLink)
+                                }
+                            }
+                            .buttonStyle(CustomButton())
+                            NavigationLink(destination: RecipeDetailView(size: geometry.size, recipeInfo: collectionViewModel.oneRecipe)) {
+                                CollectionRecipeCardView(recipe: recipe, size: geometry.size)
+                            }
+                    }.onDelete(perform: deleteRecipe)
+                        .listRowSeparator(.hidden)
+                }
+                .listStyle(.plain)
+                
+            }
+            .padding()
+            .toolbar{
                 if !collections.name.isEmpty {
                     Button {
                         saveNewItem(collection: collections)
@@ -28,32 +62,10 @@ struct CollectionCardView: View {
                     } label: {
                         Text("Save")
                     }
-                }
-                
-                Text("Collection Name")
-                    .frame(alignment: .leading)
-                TextField("Name", text: $collections.name)
+                    .buttonStyle(CustomButton())
                     .padding()
-                    
-                
-                List{
-                    ForEach(collections.collection){ recipe in
-                        Button("Load this recipe"){
-                            Task{
-                                await collectionViewModel.getOneRecipeByUrl(url1: recipe.selfLink)
-                            }
-                        }
-                        .buttonStyle(CustomButton())
-                        NavigationLink(destination: RecipeDetailView(size: geometry.size, recipe: collectionViewModel.oneRecipe.recipe ?? Recipe())){
-                            CollectionRecipeCardView(recipe: recipe, size: geometry.size)
-                        }
-                        
-                    }.onDelete(perform: deleteRecipe)
                 }
-                .listStyle(.plain)
-                
             }
-            .padding()
         }
        }
     

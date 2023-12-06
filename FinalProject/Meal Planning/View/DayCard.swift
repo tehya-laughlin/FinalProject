@@ -24,6 +24,7 @@ struct DayCard: View {
                     Text("\(dayPlan.initial)")
                         .font(.largeTitle)
                         .foregroundStyle(.black)
+                    
                 }
                 
                 VStack(alignment: .leading){

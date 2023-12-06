@@ -54,8 +54,8 @@ struct CallBodyView: View {
                 .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
-            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-            .frame(height:size.height*0.62)
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+            .frame(height:size.height*0.72)
             
         }
         

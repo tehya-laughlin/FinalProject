@@ -25,26 +25,6 @@ struct RecipeHomeView: View {
                 if(searchQuery.isEmpty){
                     VStack{
                         
-                        Text("Collections")
-                            .frame(maxWidth: size.width, alignment: .leading)
-                            .padding(.leading, 30)
-                            .font(.headline)
-                        
-                        HStack {
-                                NavigationLink {
-                                    CollectionView()
-                                } label: {
-                                    ItemCardView(urlString: "", typeName: "Favorites", size:size)
-                                }
-                            
-                        }.frame(width: size.width, alignment: .leading)
-                            .padding(.leading, 30)
-                            .padding(.bottom, 24)
-                        
-                    }
-                    
-                    VStack{
-                        
                         Text("Meal Types")
                             .frame(maxWidth: size.width, alignment: .leading)
                             .padding(.leading, 30)
