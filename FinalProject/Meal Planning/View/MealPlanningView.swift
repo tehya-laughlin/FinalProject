@@ -65,19 +65,19 @@ struct MealPlanningView: View {
     
     func addMealPlan(mealActive: Bool) {
         if(!mealActive){
-            let monday = DayPlan(name: "Monday", initial: "M")
+            let monday = DayPlan(name: "Monday", initial: "M", orderNum: 1)
             modelContext.insert(monday)
-            let tuesday = DayPlan(name: "Tuesday", initial: "T")
+            let tuesday = DayPlan(name: "Tuesday", initial: "T", orderNum: 2)
             modelContext.insert(tuesday)
-            let wednesday = DayPlan(name: "Wednesday", initial: "W")
+            let wednesday = DayPlan(name: "Wednesday", initial: "W", orderNum: 3)
             modelContext.insert(wednesday)
-            let thursday = DayPlan(name: "Thursday", initial: "Th")
+            let thursday = DayPlan(name: "Thursday", initial: "Th", orderNum: 4)
             modelContext.insert(thursday)
-            let friday = DayPlan(name: "Friday", initial: "F")
+            let friday = DayPlan(name: "Friday", initial: "F", orderNum: 5)
             modelContext.insert(friday)
-            let saturday = DayPlan(name: "Saturday", initial: "Sa")
+            let saturday = DayPlan(name: "Saturday", initial: "Sa", orderNum: 6)
             modelContext.insert(saturday)
-            let sunday = DayPlan(name: "Sunday", initial: "Su")
+            let sunday = DayPlan(name: "Sunday", initial: "Su", orderNum: 7)
             modelContext.insert(sunday)
         }
     }

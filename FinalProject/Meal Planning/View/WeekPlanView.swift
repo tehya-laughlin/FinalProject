@@ -16,8 +16,12 @@ struct WeekPlanView: View {
     var size: CGSize
     
     var body: some View {
+        let sortedMealPlans = mealPlans.sorted {
+            $0.orderNum < $1.orderNum
+        }
+        
         List{
-            ForEach(mealPlans){ dayPlan in
+            ForEach(sortedMealPlans){ dayPlan in
                 NavigationLink(destination: DayPlanView(dayPlan: dayPlan)){
                     DayCard(size: size, dayPlan: dayPlan)
                 }
