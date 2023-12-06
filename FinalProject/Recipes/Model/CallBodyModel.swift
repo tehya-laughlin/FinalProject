@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 struct CallBody: Codable {
     
@@ -24,7 +25,7 @@ struct CallBody: Codable {
     }
 }
 
-struct RecipeInfo: Codable, Identifiable {
+class RecipeInfo: Codable, Identifiable {
     var id: Int { return UUID().hashValue }
     var recipe: Recipe?
     var _links: Links?

@@ -166,8 +166,8 @@ struct RecipeDetailView: View {
             
     }
     
-    
-    /*func saveNewItemCollection(collection: CollectionItem) {
+  
+    func saveNewItemCollection(collection: CollectionItem) {
         let im = recipeInfo.recipe?.images ?? Images()
         let imType = im.SMALL ?? ImageInfo(url: "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg", width: 0, height: 0)
         let recipe = RecipeItem(label: recipeInfo.recipe?.label ?? "Recipe", imageLink: imType.url, selfLink: recipeInfo._links?.linkInfo.href ?? "https://api.edamam.com/api/recipes/v2/8275bb28647abcedef0baaf2dcf34f8b?type=public&app_id=243ff47b&app_key=71457942cb487b513a099f36f458b05a")
@@ -180,13 +180,14 @@ struct RecipeDetailView: View {
         let recipe = RecipeItem(label: recipeInfo.recipe?.label ?? "Recipe", imageLink: imType.url, selfLink: recipeInfo._links?.linkInfo.href ?? "https://api.edamam.com/api/recipes/v2/8275bb28647abcedef0baaf2dcf34f8b?type=public&app_id=243ff47b&app_key=71457942cb487b513a099f36f458b05a")
         mealPlans[0].weekPlan[dayPlanIndex].recipes.append(recipe)
     }
-    */
     
+    
+    /*
     func saveNewItemCollection(collection: CollectionItem) {
         let im = recipeInfo.recipe?.images ?? Images()
         let imTypeReg = im.REGULAR ?? ImageInfo(url: "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg", width: 0, height: 0)
         let imType = im.SMALL ?? ImageInfo(url: "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg", width: 0, height: 0)
-        let recipe = RecipeItem(label: recipeInfo.recipe?.label ?? "Recipe", imageLink: imType.url, selfLink: recipeInfo._links?.linkInfo.href ?? "https://api.edamam.com/api/recipes/v2/8275bb28647abcedef0baaf2dcf34f8b?type=public&app_id=243ff47b&app_key=71457942cb487b513a099f36f458b05a", reg: imTypeReg.url, yield: recipeInfo.recipe?.yield ?? 0, ingredients: recipeInfo.recipe?.ingredients ?? [Ingredient()], calories: recipeInfo.recipe?.calories ?? 0.0, totalTime: recipeInfo.recipe?.totalTime ?? 0, dietLabels: recipeInfo.recipe?.dietLabels ?? ["No diet labels"], healthLabels: recipeInfo.recipe?.healthLabels ?? ["No health labels"], recipeLink: recipeInfo.recipe?.source ?? "https://www.google.com/" )
+        let recipe = RecipeItem(label: recipeInfo.recipe?.label ?? "Recipe", imageLink: imType.url, selfLink: recipeInfo._links?.linkInfo.href ?? "https://api.edamam.com/api/recipes/v2/8275bb28647abcedef0baaf2dcf34f8b?type=public&app_id=243ff47b&app_key=71457942cb487b513a099f36f458b05a", recipeRegularImage: imTypeReg.url, recipeYield: recipeInfo.recipe?.yield ?? 0, recipeIngredients: recipeInfo.recipe?.ingredients ?? [Ingredient()], recipeCalories: recipeInfo.recipe?.calories ?? 0.0, recipeTotalTime: recipeInfo.recipe?.totalTime ?? 0, recipeDietLabels: recipeInfo.recipe?.dietLabels ?? ["No diet labels"], recipeHealthLabels: recipeInfo.recipe?.healthLabels ?? ["No health labels"], recipeLinkRecipe: recipeInfo.recipe?.source ?? "https://www.google.com/" )
         collection.collection.append(recipe)
     }
     
@@ -194,9 +195,10 @@ struct RecipeDetailView: View {
         let im = recipeInfo.recipe?.images ?? Images()
         let imTypeReg = im.REGULAR ?? ImageInfo(url: "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg", width: 0, height: 0)
         let imType = im.SMALL ?? ImageInfo(url: "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg", width: 0, height: 0)
-        let recipe = RecipeItem(label: recipeInfo.recipe?.label ?? "Recipe", imageLink: imType.url, selfLink: recipeInfo._links?.linkInfo.href ?? "https://api.edamam.com/api/recipes/v2/8275bb28647abcedef0baaf2dcf34f8b?type=public&app_id=243ff47b&app_key=71457942cb487b513a099f36f458b05a", reg: imTypeReg.url, yield: recipeInfo.recipe?.yield ?? 0, ingredients: recipeInfo.recipe?.ingredients ?? [Ingredient()], calories: recipeInfo.recipe?.calories ?? 0.0, totalTime: recipeInfo.recipe?.totalTime ?? 0, dietLabels: recipeInfo.recipe?.dietLabels ?? ["No diet labels"], healthLabels: recipeInfo.recipe?.healthLabels ?? ["No health labels"], recipeLink: recipeInfo.recipe?.source ?? "https://www.google.com/" )
+        let recipe = RecipeItem(label: recipeInfo.recipe?.label ?? "Recipe", imageLink: imType.url, selfLink: recipeInfo._links?.linkInfo.href ?? "https://api.edamam.com/api/recipes/v2/8275bb28647abcedef0baaf2dcf34f8b?type=public&app_id=243ff47b&app_key=71457942cb487b513a099f36f458b05a", recipeRegularImage: imTypeReg.url, recipeYield: recipeInfo.recipe?.yield ?? 0, recipeIngredients: recipeInfo.recipe?.ingredients ?? [Ingredient()], recipeCalories: recipeInfo.recipe?.calories ?? 0.0, recipeTotalTime: recipeInfo.recipe?.totalTime ?? 0, recipeDietLabels: recipeInfo.recipe?.dietLabels ?? ["No diet labels"], recipeHealthLabels: recipeInfo.recipe?.healthLabels ?? ["No health labels"], recipeLinkRecipe: recipeInfo.recipe?.source ?? "https://www.google.com/" )
         mealPlans[0].weekPlan[dayPlanIndex].recipes.append(recipe)
     }
+     */
     
 }
 

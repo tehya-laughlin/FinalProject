@@ -38,16 +38,9 @@ struct CollectionCardView: View {
                 
                 List{
                     ForEach(collections.collection){ recipe in
-                        Button("Load this recipe"){
-                            Task{
-                                await collectionViewModel.getOneRecipeByUrl(url1: recipe.selfLink)
-                            }
-                        }
-                        .buttonStyle(CustomButton())
-                        NavigationLink(destination: RecipeDetailView(size: geometry.size, recipe: collectionViewModel.oneRecipe.recipe ?? Recipe())){
+                        NavigationLink(destination: RecipeDetailView(size: geometry.size, recipeInfo: recipe)) {
                             CollectionRecipeCardView(recipe: recipe, size: geometry.size)
                         }
-                        
                     }.onDelete(perform: deleteRecipe)
                 }
                 .listStyle(.plain)
