@@ -32,7 +32,9 @@ struct InPantryView: View {
                 List{
                     ForEach(ingredients){
                         ingredient in
-                        Text("\(ingredient.food)")
+                        HStack{
+                            Text("\(ingredient.food)")
+                        }
                     }
                     .onDelete(perform: deleteIngredients)
                 }

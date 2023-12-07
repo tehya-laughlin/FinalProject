@@ -38,13 +38,17 @@ struct AddPantryView: View {
                     HStack{
                         Text("\(ingredient.food.knownAs)")
                         Spacer()
-                        Button("Add to pantry"){
+                        Button{
                             Task{
                                 if(!ingredients.contains(Item(f: ingredient.food.label, id: ingredient.food.foodId))){
                                     print(ingredients.contains(Item( f: ingredient.food.label, id: ingredient.food.foodId)))
                                     addIngredient(im: Item(f: ingredient.food.label, id: ingredient.food.foodId))
                                 }
                             }
+                        } label: {
+                            Image(systemName: "plus")
+                                .foregroundColor(Color("Main"))
+                                .scaleEffect(CGSize(width: 1, height: 1))
                         }
                     }
                 }
@@ -54,13 +58,17 @@ struct AddPantryView: View {
                     HStack{
                         Text("\(ingredient.food.knownAs)")
                         Spacer()
-                        Button("Add to pantry"){
+                        Button{
                             Task{
                                 if(!ingredients.contains(Item(f: ingredient.food.label, id: ingredient.food.foodId))){
                                     print(ingredients.contains(Item(f: ingredient.food.label, id: ingredient.food.foodId)))
                                     addIngredient(im: Item(f: ingredient.food.label, id: ingredient.food.foodId))
                                 }
                             }
+                        } label: {
+                            Image(systemName: "plus")
+                                .foregroundColor(Color("Main"))
+                                .scaleEffect(CGSize(width: 0.7, height: 0.7))
                         }
                     }
                 }
