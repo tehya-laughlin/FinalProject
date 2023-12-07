@@ -14,8 +14,9 @@ class CollectionViewModel: ObservableObject {
    
     func getOneRecipeByUrl(url1: String) async -> () {
         do {
-            print(url1)
-            let url = URL(string: url1)!
+            guard let url = URL(string: url1) else {
+                return
+            }
             let (data, _) = try await URLSession.shared.data(from: url)
             oneRecipe = try JSONDecoder().decode(RecipeInfo.self, from: data)
         } catch {

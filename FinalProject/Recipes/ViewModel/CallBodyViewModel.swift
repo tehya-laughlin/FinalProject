@@ -14,8 +14,9 @@ class AppViewModel: ObservableObject {
     
     func getCallFromUrl(url1: String) async -> () {
         do {
-            print(url1)
-            let url = URL(string: url1)!
+            guard let url = URL(string: url1) else {
+                return
+            }
             let (data, _) = try await URLSession.shared.data(from: url)
             call = try JSONDecoder().decode(CallBody.self, from: data)
         } catch {
@@ -45,7 +46,9 @@ class AppViewModel: ObservableObject {
         let urlString = formatUrlString(mealType: mealType, cuisineType: cuisineType, searchValue: searchValue, dishType: dishType)
             print(urlString)
             do {
-                let url = URL(string: urlString)!
+                guard let url = URL(string: urlString) else {
+                    return
+                }
                 let (data, _) = try await URLSession.shared.data(from: url)
                 call = try JSONDecoder().decode(CallBody.self, from: data)
             } catch {
