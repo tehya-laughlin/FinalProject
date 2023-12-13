@@ -36,7 +36,7 @@ struct RecipeListView: View {
            
             
         }
-        .toolbar(.hidden, for: .tabBar)
+        .toolbar(.visible, for: .tabBar)
        
     }
 }

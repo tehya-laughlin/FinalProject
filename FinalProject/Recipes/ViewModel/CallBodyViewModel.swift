@@ -8,8 +8,33 @@
 import Foundation
 
 class AppViewModel: ObservableObject {
+    enum Error: LocalizedError {
+        case titleEmpty
+        
+        var errorDescription: String? {
+            switch self {
+            case .titleEmpty:
+                return "An error occured"
+            }
+        }
+        
+        var recoverySuggestion: String? {
+            switch self {
+            case .titleEmpty:
+                return "Article publishing failed due to api error"
+            }
+        }
+    }
+    
+    @Published var title: String = ""
+    @Published var error: Swift.Error?
+
+    func publish() {
+        error = Error.titleEmpty
+    }
     
     @Published var call = CallBody()
+    
     
     
     func getCallFromUrl(url1: String) async -> () {
@@ -21,6 +46,7 @@ class AppViewModel: ObservableObject {
             call = try JSONDecoder().decode(CallBody.self, from: data)
         } catch {
             print("Error: \(error.localizedDescription)")
+            self.publish()
         }
     }
     
@@ -53,6 +79,7 @@ class AppViewModel: ObservableObject {
                 call = try JSONDecoder().decode(CallBody.self, from: data)
             } catch {
                 print("Error: \(error.localizedDescription)")
+                self.publish()
             }
         
 

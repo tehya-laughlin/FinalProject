@@ -24,18 +24,22 @@ struct DayPlanView: View {
                 List{
                     ForEach(dayPlan.recipes){ recipe in
                         
-                         Button("Load"){
-                             Task{
-                             await mealPlanViewModel.getOneRecipeByUrl(recipe: recipe)
-                             }
-                         }
-                         .buttonStyle(CustomButton())
-                         NavigationLink(destination: RecipeDetailView(size: geometry.size, recipeInfo: mealPlanViewModel.oneRecipe)) {
-                             CollectionRecipeCardView(recipe: recipe, size: geometry.size)
-                         }
+                        VStack{
+                            Button("Load"){
+                                Task{
+                                    await mealPlanViewModel.getOneRecipeByUrl(recipe: recipe)
+                                }
+                            }
+                            .buttonStyle(CustomButton())
+                            NavigationLink(destination: RecipeDetailView(size: geometry.size, recipeInfo: mealPlanViewModel.oneRecipe)) {
+                                CollectionRecipeCardView(recipe: recipe, size: geometry.size)
+                            }
+                            
+                        }.errorAlert(error: $mealPlanViewModel.error)
                         
                     }.onDelete(perform: deleteRecipeInDayPlan)
-                    .listRowSeparator(.hidden)
+                        .listRowSeparator(.hidden)
+                        
                 }
                 .listStyle(.plain)
             }

@@ -134,7 +134,7 @@ struct RecipeSearchView: View {
             
             
             
-        }
+        }.toolbar(.visible, for: ToolbarPlacement.tabBar)
 
     }
 }

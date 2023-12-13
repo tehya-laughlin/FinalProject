@@ -10,7 +10,7 @@ import SwiftData
 
 struct PantryView: View {
     @Environment(\.modelContext) var modelContext
-    @State var pageToggle: Bool = true
+    @State var pageToggle = true
     @ObservedObject var pantryViewModel = PantryViewModel()
     @State var ingredients = [Item]()
     
@@ -34,16 +34,16 @@ struct PantryView: View {
                         Text("Shopping list")
                             .font(.title3)
                             .fontWeight(.bold)
-                            
+                        
                     } else {
                         Text("Shopping list")
                             .font(.title3)
                             .fontWeight(.regular)
-                            
+                        
                     }
                 }
                 .frame(alignment: .leading)
-              
+                
                 
                 Button{
                     pageToggle = false
@@ -52,21 +52,24 @@ struct PantryView: View {
                         Text("Add to shopping list")
                             .font(.title3)
                             .fontWeight(.regular)
-                           
+                        
                     } else {
                         Text("Add to shopping list")
                             .font(.title3)
                             .fontWeight(.bold)
-                          
+                        
                     }
+                    
+                    
+                    
                 }
+                .background(Color.white)
+                
                 
             }
             
             
         }
-        
-        
     }
 }
 

@@ -9,6 +9,32 @@ import Foundation
 import SwiftData
 
 class MealPlanViewModel: ObservableObject {
+    
+    enum Error: LocalizedError {
+        case titleEmpty
+        
+        var errorDescription: String? {
+            switch self {
+            case .titleEmpty:
+                return "An error occured"
+            }
+        }
+        
+        var recoverySuggestion: String? {
+            switch self {
+            case .titleEmpty:
+                return "Article publishing failed due to api error"
+            }
+        }
+    }
+    
+    @Published var title: String = ""
+    @Published var error: Swift.Error?
+
+    func publish() {
+        error = Error.titleEmpty
+    }
+    
     @Published var oneRecipe = RecipeInfo()
    
     func getOneRecipeByUrl(recipe: RecipeItem) async -> () {
@@ -21,6 +47,7 @@ class MealPlanViewModel: ObservableObject {
             oneRecipe = try JSONDecoder().decode(RecipeInfo.self, from: data)
         } catch {
             print("Error: \(error.localizedDescription)")
+            self.publish()
         }
     }
     

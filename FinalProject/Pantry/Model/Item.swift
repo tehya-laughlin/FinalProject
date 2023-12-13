@@ -12,6 +12,7 @@ import SwiftData
 class Item: Identifiable, Equatable{
     @Attribute(.unique) var id: String
     var food: String
+    var isAdded: Bool = false
     
     init(f: String = "", id: String) {
         food = f

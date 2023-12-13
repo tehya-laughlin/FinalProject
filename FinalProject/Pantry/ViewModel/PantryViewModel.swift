@@ -9,6 +9,42 @@ import Foundation
 
 class PantryViewModel: ObservableObject {
     
+    enum Error: LocalizedError {
+        case titleEmpty
+        case itemAdded
+        
+        var errorDescription: String? {
+            switch self {
+            case .titleEmpty:
+                return "An error occured"
+            case .itemAdded:
+                return "This item is already added"
+            }
+            
+            
+        }
+        
+        var recoverySuggestion: String? {
+            switch self {
+            case .titleEmpty:
+                return "Article publishing failed due to api error"
+            case .itemAdded:
+                return "This item has already been added"
+            }
+        }
+    }
+    
+    @Published var title: String = ""
+    @Published var error: Swift.Error?
+
+    func publish() {
+        error = Error.titleEmpty
+    }
+    
+    func itemAddedAlready() {
+        error = Error.itemAdded
+    }
+    
     @Published var pantryCall = IngredientQueryBody()
     
     
@@ -26,6 +62,7 @@ class PantryViewModel: ObservableObject {
 
             } catch {
                 print("Error: \(error.localizedDescription)")
+                self.publish()
             }
         
 

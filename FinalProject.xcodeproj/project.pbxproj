@@ -12,6 +12,7 @@
 		2B4DB7F72B1903FC00CA357A /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 2B4DB7F62B1903FC00CA357A /* Algorithms */; };
 		2B4DB7FB2B2004F300CA357A /* MealPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DB7FA2B2004F300CA357A /* MealPlanViewModel.swift */; };
 		2B4DB7FE2B21120500CA357A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4DB7FD2B21120500CA357A /* Launch Screen.storyboard */; };
+		2B4DB8002B2A1C0700CA357A /* IngredientRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DB7FF2B2A1C0700CA357A /* IngredientRowView.swift */; };
 		2BBC54F92AE6CE0E00D3043D /* FinalProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC54F82AE6CE0E00D3043D /* FinalProjectApp.swift */; };
 		2BBC54FB2AE6CE0E00D3043D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC54FA2AE6CE0E00D3043D /* ContentView.swift */; };
 		2BBC54FF2AE6CE0F00D3043D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC54FE2AE6CE0F00D3043D /* Assets.xcassets */; };
@@ -49,7 +50,8 @@
 		2B4DB7FA2B2004F300CA357A /* MealPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MealPlanViewModel.swift; path = "FinalProject/Meal Planning/MealPlanViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		2B4DB7FC2B210E1700CA357A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2B4DB7FD2B21120500CA357A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		2BBC54F52AE6CE0E00D3043D /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B4DB7FF2B2A1C0700CA357A /* IngredientRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRowView.swift; sourceTree = "<group>"; };
+		2BBC54F52AE6CE0E00D3043D /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBC54F82AE6CE0E00D3043D /* FinalProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectApp.swift; sourceTree = "<group>"; };
 		2BBC54FA2AE6CE0E00D3043D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2BBC54FE2AE6CE0F00D3043D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,7 +106,7 @@
 		2BBC54F62AE6CE0E00D3043D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2BBC54F52AE6CE0E00D3043D /* FinalProject.app */,
+				2BBC54F52AE6CE0E00D3043D /* CookBook.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +190,7 @@
 				2BBC551E2AE9A1C200D3043D /* InPantryView.swift */,
 				2BBC55222AE9A1E800D3043D /* PantryView.swift */,
 				2BBC55202AE9A1D900D3043D /* AddPantryView.swift */,
+				2B4DB7FF2B2A1C0700CA357A /* IngredientRowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,9 +292,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2BBC54F42AE6CE0E00D3043D /* FinalProject */ = {
+		2BBC54F42AE6CE0E00D3043D /* CookBook */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BBC55052AE6CE0F00D3043D /* Build configuration list for PBXNativeTarget "FinalProject" */;
+			buildConfigurationList = 2BBC55052AE6CE0F00D3043D /* Build configuration list for PBXNativeTarget "CookBook" */;
 			buildPhases = (
 				2BBC54F12AE6CE0E00D3043D /* Sources */,
 				2BBC54F22AE6CE0E00D3043D /* Frameworks */,
@@ -301,12 +304,12 @@
 			);
 			dependencies = (
 			);
-			name = FinalProject;
+			name = CookBook;
 			packageProductDependencies = (
 				2B4DB7F62B1903FC00CA357A /* Algorithms */,
 			);
 			productName = FinalProject;
-			productReference = 2BBC54F52AE6CE0E00D3043D /* FinalProject.app */;
+			productReference = 2BBC54F52AE6CE0E00D3043D /* CookBook.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -340,7 +343,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2BBC54F42AE6CE0E00D3043D /* FinalProject */,
+				2BBC54F42AE6CE0E00D3043D /* CookBook */,
 			);
 		};
 /* End PBXProject section */
@@ -384,6 +387,7 @@
 				2B4DB7F42B18E97600CA357A /* DayCard.swift in Sources */,
 				2BBC55412AF0251E00D3043D /* IngredientModel.swift in Sources */,
 				2BBC55292AE9A22400D3043D /* DayPlanView.swift in Sources */,
+				2B4DB8002B2A1C0700CA357A /* IngredientRowView.swift in Sources */,
 				2BBC55452AF0253000D3043D /* PantryViewModel.swift in Sources */,
 				2BBC55232AE9A1E800D3043D /* PantryView.swift in Sources */,
 				2BBC550D2AE6E4FF00D3043D /* CallBodyViewModel.swift in Sources */,
@@ -590,7 +594,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BBC55052AE6CE0F00D3043D /* Build configuration list for PBXNativeTarget "FinalProject" */ = {
+		2BBC55052AE6CE0F00D3043D /* Build configuration list for PBXNativeTarget "CookBook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BBC55062AE6CE0F00D3043D /* Debug */,

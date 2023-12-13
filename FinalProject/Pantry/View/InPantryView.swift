@@ -12,7 +12,6 @@ struct InPantryView: View {
     @Environment(\.modelContext) var modelContext
     @ObservedObject var pantryViewModel: PantryViewModel
     @Query var ingredients: [Item]
-    
     var size: CGSize
     
     var body: some View {
@@ -32,12 +31,23 @@ struct InPantryView: View {
                 List{
                     ForEach(ingredients){
                         ingredient in
-                        HStack{
-                            Text("\(ingredient.food)")
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10.0)
+                                            .fill(Color("Background"))
+                            HStack{
+                                Text("\(ingredient.food)")
+                                    .padding(.leading, 10)
+                                Spacer()
+                            }
                         }
                     }
                     .onDelete(perform: deleteIngredients)
+                    .listRowSeparator(.hidden)
+                    
                 }
+                .listStyle(.plain)
+                .padding(.top, 20)
+                
                 
                 
             }

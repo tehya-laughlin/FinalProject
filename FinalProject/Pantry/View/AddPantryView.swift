@@ -20,6 +20,7 @@ struct AddPantryView: View {
     
     var body: some View {
         VStack{
+            
             Button("Load Ingredients") {
                 Task{
                
@@ -28,58 +29,30 @@ struct AddPantryView: View {
                 }
             }
             .buttonStyle(CustomButton())
-            .frame(width: size.width/2, height: size.height/9)
+            //.frame(width: size.width/2, height: size.height/9)
             .padding(.trailing, 10)
             
             
             List{
                 ForEach(pantryViewModel.pantryCall.hints ?? [IngredientModel(f: IngredientItem())]){
                     ingredient in
-                    HStack{
-                        Text("\(ingredient.food.knownAs)")
-                        Spacer()
-                        Button{
-                            Task{
-                                if(!ingredients.contains(Item(f: ingredient.food.label, id: ingredient.food.foodId))){
-                                    print(ingredients.contains(Item( f: ingredient.food.label, id: ingredient.food.foodId)))
-                                    addIngredient(im: Item(f: ingredient.food.label, id: ingredient.food.foodId))
-                                }
-                            }
-                        } label: {
-                            Image(systemName: "plus")
-                                .foregroundColor(Color("Main"))
-                                .scaleEffect(CGSize(width: 1, height: 1))
-                        }
-                    }
-                }
+                    IngredientRowView(ingredient: ingredient, pantryViewModel: pantryViewModel)
+                    .errorAlert(error: $pantryViewModel.error)
+                    
+                }.listRowSeparator(.hidden)
                 
                 ForEach(pantryViewModel.pantryCall.parsed ?? [IngredientModel(f: IngredientItem())]){
                     ingredient in
-                    HStack{
-                        Text("\(ingredient.food.knownAs)")
-                        Spacer()
-                        Button{
-                            Task{
-                                if(!ingredients.contains(Item(f: ingredient.food.label, id: ingredient.food.foodId))){
-                                    print(ingredients.contains(Item(f: ingredient.food.label, id: ingredient.food.foodId)))
-                                    addIngredient(im: Item(f: ingredient.food.label, id: ingredient.food.foodId))
-                                }
-                            }
-                        } label: {
-                            Image(systemName: "plus")
-                                .foregroundColor(Color("Main"))
-                                .scaleEffect(CGSize(width: 0.7, height: 0.7))
-                        }
-                    }
+                    IngredientRowView(ingredient: ingredient, pantryViewModel: pantryViewModel)
+                    .errorAlert(error: $pantryViewModel.error)
                 }
+                .listRowSeparator(.hidden)
                 
             }
+            .listStyle(.plain)
         }.searchable(text: $searchQuery)
     }
     
-    func addIngredient(im: Item) {
-        let ingredient = im
-        modelContext.insert(ingredient)
-    }
+    
 }
 
