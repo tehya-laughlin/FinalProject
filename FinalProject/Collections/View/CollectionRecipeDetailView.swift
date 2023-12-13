@@ -62,10 +62,10 @@ struct CollectionRecipeDetailView: View {
                                     }
                                     .listRowSeparator(.hidden)
                                     /*ForEach(recipe.recipeIngredients){
-                                        ingredient in
-                                        IngredientRowView(ingredient: IngredientModel(f: IngredientItem(f: ingredient.foodID ?? "", l: ingredient.food ?? "Not food")))
-                                         
-                                    }.listRowSeparator(.hidden)*/
+                                     ingredient in
+                                     IngredientRowView(ingredient: IngredientModel(f: IngredientItem(f: ingredient.foodID ?? "", l: ingredient.food ?? "Not food")))
+                                     
+                                     }.listRowSeparator(.hidden)*/
                                 } header: {
                                     Text("Ingredients")
                                 }
@@ -115,13 +115,15 @@ struct CollectionRecipeDetailView: View {
                 }
                 .frame(height: size.height * 0.65)
                 
+            }
+        }.toolbar {
+            ToolbarItem{
                 Button("Cook this"){
                     openURL(URL(string: recipe.recipeLinkRecipe)!)
                 }
                 .buttonStyle(CustomButton())
-                .offset(CGSize(width: 0.0, height: -110.0))
             }
-        }.toolbar {
+            
             ToolbarItem{
                 ZStack{
                     Menu{
@@ -150,15 +152,17 @@ struct CollectionRecipeDetailView: View {
                     }
                 }
             }
+            
         }.toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+        
     }
     
-        func saveNewItemCollection(collection: CollectionItem) {
-            collection.collection.append(recipe)
-        }
-        
-        func saveNewItemMealPlan(dayPlanIndex: Int) {
-            mealPlans[dayPlanIndex].recipes.append(recipe)
-        }
-         
+    func saveNewItemCollection(collection: CollectionItem) {
+        collection.collection.append(recipe)
+    }
+    
+    func saveNewItemMealPlan(dayPlanIndex: Int) {
+        mealPlans[dayPlanIndex].recipes.append(recipe)
+    }
+    
 }

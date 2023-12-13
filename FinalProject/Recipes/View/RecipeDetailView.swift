@@ -112,13 +112,15 @@ struct RecipeDetailView: View {
                 }
                 .frame(height: size.height * 0.65)
                 
+            }
+        }.toolbar {
+            ToolbarItem{
                 Button("Cook this"){
                     openURL(URL(string: recipe.url!)!)
                 }
                 .buttonStyle(CustomButton())
-                .offset(CGSize(width: 0.0, height: -110.0))
             }
-        }.toolbar {
+            
             ToolbarItem{
                 ZStack{
                     Menu{
@@ -147,7 +149,9 @@ struct RecipeDetailView: View {
                     }
                 }
             }
+            
         }.toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+        
     }
     
     func saveNewItemCollection(collection: CollectionItem) {

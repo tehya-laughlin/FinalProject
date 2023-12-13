@@ -14,6 +14,7 @@
 		2B4DB7FE2B21120500CA357A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4DB7FD2B21120500CA357A /* Launch Screen.storyboard */; };
 		2B4DB8002B2A1C0700CA357A /* IngredientRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DB7FF2B2A1C0700CA357A /* IngredientRowView.swift */; };
 		2B4DB8042B2A586100CA357A /* CollectionRecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DB8032B2A586100CA357A /* CollectionRecipeDetailView.swift */; };
+		2B4DB8062B2A694F00CA357A /* ToolBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DB8052B2A694F00CA357A /* ToolBarMenu.swift */; };
 		2BBC54F92AE6CE0E00D3043D /* FinalProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC54F82AE6CE0E00D3043D /* FinalProjectApp.swift */; };
 		2BBC54FB2AE6CE0E00D3043D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC54FA2AE6CE0E00D3043D /* ContentView.swift */; };
 		2BBC54FF2AE6CE0F00D3043D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC54FE2AE6CE0F00D3043D /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		2B4DB7FD2B21120500CA357A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2B4DB7FF2B2A1C0700CA357A /* IngredientRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRowView.swift; sourceTree = "<group>"; };
 		2B4DB8032B2A586100CA357A /* CollectionRecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRecipeDetailView.swift; sourceTree = "<group>"; };
+		2B4DB8052B2A694F00CA357A /* ToolBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarMenu.swift; sourceTree = "<group>"; };
 		2BBC54F52AE6CE0E00D3043D /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBC54F82AE6CE0E00D3043D /* FinalProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectApp.swift; sourceTree = "<group>"; };
 		2BBC54FA2AE6CE0E00D3043D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				2BBC553A2AF0020B00D3043D /* RecipeCardView.swift */,
 				2BBC55462AF3418200D3043D /* ItemCardView.swift */,
 				2BBC55682AF44A1100D3043D /* RecipeListView.swift */,
+				2B4DB8052B2A694F00CA357A /* ToolBarMenu.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BBC554B2AF4216300D3043D /* CustomButton.swift in Sources */,
+				2B4DB8062B2A694F00CA357A /* ToolBarMenu.swift in Sources */,
 				2BBC55212AE9A1D900D3043D /* AddPantryView.swift in Sources */,
 				2BBC552D2AE9A24C00D3043D /* RecipeHomeView.swift in Sources */,
 				2B4DB7FB2B2004F300CA357A /* MealPlanViewModel.swift in Sources */,
