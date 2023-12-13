@@ -30,17 +30,7 @@ struct CollectionCardView: View {
                 List{
                     ForEach(collections.collection){ recipe in
                         VStack{
-                            HStack{
-                                Button("Load"){
-                                    Task{
-                                        await collectionViewModel.getOneRecipeByUrl(url1: recipe.selfLink)
-                                    }
-                                }
-                                .buttonStyle(CustomButton())
-                                .padding(.leading, 12)
-                                Spacer()
-                            }
-                            NavigationLink(destination: RecipeDetailView(size: geometry.size, recipeInfo: collectionViewModel.oneRecipe)) {
+                            NavigationLink(destination: CollectionRecipeDetailView(size: geometry.size, recipe: recipe)) {
                                 CollectionRecipeCardView(recipe: recipe, size: geometry.size)
                             }
                         }

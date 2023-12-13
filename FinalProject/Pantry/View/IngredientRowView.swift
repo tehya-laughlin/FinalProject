@@ -12,7 +12,6 @@ struct IngredientRowView: View {
     @Environment(\.modelContext) var modelContext
     
     var ingredient: IngredientModel
-    var pantryViewModel: PantryViewModel
     @Query var ingredients: [Item]
     @State var change = true
     
@@ -22,7 +21,7 @@ struct IngredientRowView: View {
                 .fill(Color("Background"))
             
             HStack{
-                Text("\(ingredient.food.knownAs)")
+                Text("\(ingredient.food.label)")
                     .padding(.leading, 20)
                 Spacer()
                 
@@ -31,9 +30,6 @@ struct IngredientRowView: View {
                         if(!ingredients.contains(Item(f: ingredient.food.label, id: ingredient.food.foodId))){
                             addIngredient(im: Item(f: ingredient.food.label, id: ingredient.food.foodId))
                             change = false
-                        } else {
-                            pantryViewModel.itemAddedAlready()
-                            
                         }
                     }
                 } label: {

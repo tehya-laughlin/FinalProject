@@ -63,7 +63,6 @@ class AppViewModel: ObservableObject {
     func getCall(searchValue: String, mealType: String, cuisineType: String, dishType: String) async -> () {
         
         let urlString = formatUrlString(mealType: mealType, cuisineType: cuisineType, searchValue: searchValue, dishType: dishType)
-        print(urlString)
         do {
             guard let url = URL(string: urlString) else {
                 return

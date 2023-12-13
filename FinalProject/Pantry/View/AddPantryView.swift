@@ -20,7 +20,7 @@ struct AddPantryView: View {
     var body: some View {
         VStack{
             Button("Load Ingredients") {
-                Task
+                Task {
                     await pantryViewModel.getCall(searchValue: searchQuery)
                 }
             }
@@ -30,14 +30,14 @@ struct AddPantryView: View {
             List{
                 ForEach(pantryViewModel.pantryCall.hints ?? [IngredientModel(f: IngredientItem())]){
                     ingredient in
-                    IngredientRowView(ingredient: ingredient, pantryViewModel: pantryViewModel)
+                    IngredientRowView(ingredient: ingredient)
                         .errorAlert(error: $pantryViewModel.error)
                     
                 }.listRowSeparator(.hidden)
                 
                 ForEach(pantryViewModel.pantryCall.parsed ?? [IngredientModel(f: IngredientItem())]){
                     ingredient in
-                    IngredientRowView(ingredient: ingredient, pantryViewModel: pantryViewModel)
+                    IngredientRowView(ingredient: ingredient)
                         .errorAlert(error: $pantryViewModel.error)
                 }
                 .listRowSeparator(.hidden)
@@ -45,5 +45,7 @@ struct AddPantryView: View {
             .listStyle(.plain)
         }.searchable(text: $searchQuery)
     }
+    
 }
+
 

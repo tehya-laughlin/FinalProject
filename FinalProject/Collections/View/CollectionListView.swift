@@ -18,6 +18,11 @@ struct CollectionListView: View {
         GeometryReader{ geometry in
             let size = geometry.size
             
+            if(collections.isEmpty){
+                Text("You have no collections. Add a new collection above")
+                    .padding()
+            }
+            
             List {
                 ForEach(collections) { collection in
                     Button {

@@ -16,17 +16,14 @@ struct DayPlanView: View {
     var body: some View {
         GeometryReader{ geometry in
             VStack{
-    
+                if(dayPlan.recipes.isEmpty){
+                    Text("There are no recipes assigned to this day")
+                        .padding()
+                }
                 List{
                     ForEach(dayPlan.recipes){ recipe in
                         VStack{
-                            Button("Load"){
-                                Task{
-                                    await mealPlanViewModel.getOneRecipeByUrl(recipe: recipe)
-                                }
-                            }
-                            .buttonStyle(CustomButton())
-                            NavigationLink(destination: RecipeDetailView(size: geometry.size, recipeInfo: mealPlanViewModel.oneRecipe)) {
+                            NavigationLink(destination: CollectionRecipeDetailView(size: geometry.size, recipe: recipe)) {
                                 CollectionRecipeCardView(recipe: recipe, size: geometry.size)
                             }
                             
