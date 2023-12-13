@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DayCard: View {
     var size: CGSize
-    
     var dayPlan: DayPlan
     
     var body: some View {
@@ -24,7 +23,6 @@ struct DayCard: View {
                     Text("\(dayPlan.initial)")
                         .font(.largeTitle)
                         .foregroundStyle(.black)
-                    
                 }
                 
                 VStack(alignment: .leading){
@@ -34,10 +32,8 @@ struct DayCard: View {
                             .font(.caption2)
                             .foregroundStyle(.black)
                     }
-                    
                 }
                 .frame(width: size.width * 0.6)
-                
             }
         }
         .background(.white)
@@ -45,8 +41,6 @@ struct DayCard: View {
         .shadow(radius: 5)
         .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10))
     }
-    
-    
 }
 
 

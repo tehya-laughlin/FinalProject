@@ -13,12 +13,10 @@ struct PantryView: View {
     @State var pageToggle = true
     @ObservedObject var pantryViewModel = PantryViewModel()
     @State var ingredients = [Item]()
-    
     var size: CGSize
     
     var body: some View {
         NavigationView{
-            
             VStack{
                 if(pageToggle){
                     InPantryView(pantryViewModel: pantryViewModel, size: size)
@@ -44,7 +42,6 @@ struct PantryView: View {
                 }
                 .frame(alignment: .leading)
                 
-                
                 Button{
                     pageToggle = false
                 } label: {
@@ -57,18 +54,10 @@ struct PantryView: View {
                         Text("Add to shopping list")
                             .font(.title3)
                             .fontWeight(.bold)
-                        
                     }
-                    
-                    
-                    
                 }
                 .background(Color.white)
-                
-                
             }
-            
-            
         }
     }
 }

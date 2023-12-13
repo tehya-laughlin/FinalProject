@@ -19,11 +19,13 @@ struct IngredientRowView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 10.0)
-                            .fill(Color("Background"))
+                .fill(Color("Background"))
+            
             HStack{
                 Text("\(ingredient.food.knownAs)")
                     .padding(.leading, 20)
                 Spacer()
+                
                 Button{
                     Task{
                         if(!ingredients.contains(Item(f: ingredient.food.label, id: ingredient.food.foodId))){
@@ -31,7 +33,7 @@ struct IngredientRowView: View {
                             change = false
                         } else {
                             pantryViewModel.itemAddedAlready()
-                                
+                            
                         }
                     }
                 } label: {

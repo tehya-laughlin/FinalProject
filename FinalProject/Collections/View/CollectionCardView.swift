@@ -11,42 +11,39 @@ import SwiftData
 struct CollectionCardView: View {
     
     @Environment(\.modelContext) private var context
-       @Environment(\.presentationMode) var presentationMode
-    
+    @Environment(\.presentationMode) var presentationMode
     @Bindable var collections: CollectionItem
-    
     @ObservedObject var collectionViewModel = CollectionViewModel()
     
-       
     var body: some View {
         GeometryReader{ geometry in
             VStack {
                 VStack(alignment: .leading){
-                   
-                    
                     Text("Collection Name")
                         .frame(alignment: .leading)
                         .font(.subheadline)
                     TextField("Name", text: $collections.name)
                         .padding(EdgeInsets(top: 2, leading: 10, bottom: 2, trailing: 0))
                         .border(Color("Secondary"), width: 2)
-                    
-
-                        
                 }
-                    
                 
                 List{
                     ForEach(collections.collection){ recipe in
-                            Button("Load"){
-                                Task{
-                                    await collectionViewModel.getOneRecipeByUrl(url1: recipe.selfLink)
+                        VStack{
+                            HStack{
+                                Button("Load"){
+                                    Task{
+                                        await collectionViewModel.getOneRecipeByUrl(url1: recipe.selfLink)
+                                    }
                                 }
+                                .buttonStyle(CustomButton())
+                                .padding(.leading, 12)
+                                Spacer()
                             }
-                            .buttonStyle(CustomButton())
                             NavigationLink(destination: RecipeDetailView(size: geometry.size, recipeInfo: collectionViewModel.oneRecipe)) {
                                 CollectionRecipeCardView(recipe: recipe, size: geometry.size)
                             }
+                        }
                     }.onDelete(perform: deleteRecipe)
                         .listRowSeparator(.hidden)
                 }
@@ -67,7 +64,7 @@ struct CollectionCardView: View {
                 }
             }
         }
-       }
+    }
     
     func saveNewItem(collection: CollectionItem) {
         let newCollectionItem = collection
@@ -79,7 +76,6 @@ struct CollectionCardView: View {
             collections.collection.remove(at: index)
         }
     }
-    
     
 }
 

@@ -11,26 +11,24 @@ import SwiftData
 struct AllCollectionsView: View {
     
     @State var isNewCollectionSelected = false
-        
-        var body: some View {
-         
-            NavigationStack{
-                CollectionListView()
-                    .navigationTitle("Collections")
-                    .toolbar {
-                        Button {
-                            isNewCollectionSelected.toggle()
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-
-                    }
-                    .navigationDestination(isPresented: $isNewCollectionSelected) {
-                        CollectionCardView(collections: CollectionItem())
-                    }
-            }
-                
-        }
     
+    var body: some View {
+        
+        NavigationStack{
+            CollectionListView()
+                .navigationTitle("Collections")
+                .toolbar {
+                    Button {
+                        isNewCollectionSelected.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    
+                }
+                .navigationDestination(isPresented: $isNewCollectionSelected) {
+                    CollectionCardView(collections: CollectionItem())
+                }
+        }
+    }
 }
 

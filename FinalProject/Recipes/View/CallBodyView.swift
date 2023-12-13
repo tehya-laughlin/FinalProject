@@ -13,33 +13,22 @@ struct CallBodyView: View {
     var size: CGSize
     var searchQuery: String
     @Binding  var selectedMealType: FilterMealType
-    
     @Binding  var selectedCuisine: FilterCuisineType
-    
     @Binding  var selectedDish: FilterDishType
     
     
-    
-    
     var body: some View {
-        
         VStack{
             VStack{
                 HStack{
-                    
-                        Button{
-                            Task{
-                                await appViewModel.getCall(searchValue: searchQuery, mealType: selectedMealType.rawValue, cuisineType: selectedCuisine.rawValue, dishType: selectedDish.rawValue)
-                            }
-                            
-                        } label: {
-                            Text("Load Recipes")
-                            
+                    Button("Load Recipes"){
+                        Task{
+                            await appViewModel.getCall(searchValue: searchQuery, mealType: selectedMealType.rawValue, cuisineType: selectedCuisine.rawValue, dishType: selectedDish.rawValue)
                         }
-                        .buttonStyle(CustomButton())
-                        .frame(width: size.width/3, height: size.height/9)
-                        .padding(.trailing, 10)
-                    
+                    }
+                    .buttonStyle(CustomButton())
+                    .frame(width: size.width/3, height: size.height/9)
+                    .padding(.trailing, 10)
                     
                     Button("Next Page") {
                         Task {
@@ -52,7 +41,6 @@ struct CallBodyView: View {
                     .padding(.leading, 10)
                 }
                 .errorAlert(error: $appViewModel.error)
-                
             }
             
             List{
@@ -66,12 +54,8 @@ struct CallBodyView: View {
             .listStyle(.plain)
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
             .frame(height:size.height*0.72)
-            
         }
-        
-        
     }
-    
 }
 
 struct LocalizedAlertError: LocalizedError {
@@ -82,7 +66,7 @@ struct LocalizedAlertError: LocalizedError {
     var recoverySuggestion: String? {
         underlyingError.recoverySuggestion
     }
-
+    
     init?(error: Error?) {
         guard let localizedError = error as? LocalizedError else { return nil }
         underlyingError = localizedError
@@ -91,14 +75,14 @@ struct LocalizedAlertError: LocalizedError {
 
 extension View {
     func errorAlert(error: Binding<Error?>, buttonTitle: String = "OK") -> some View {
-            let localizedAlertError = LocalizedAlertError(error: error.wrappedValue)
-            return alert(isPresented: .constant(localizedAlertError != nil), error: localizedAlertError) { _ in
-                Button(buttonTitle) {
-                    error.wrappedValue = nil
-                }
-            } message: { error in
-                Text(error.recoverySuggestion ?? "")
+        let localizedAlertError = LocalizedAlertError(error: error.wrappedValue)
+        return alert(isPresented: .constant(localizedAlertError != nil), error: localizedAlertError) { _ in
+            Button(buttonTitle) {
+                error.wrappedValue = nil
             }
+        } message: { error in
+            Text(error.recoverySuggestion ?? "")
+        }
     }
 }
 

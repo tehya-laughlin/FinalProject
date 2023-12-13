@@ -7,56 +7,56 @@
 
 import SwiftUI
 
-    enum FilterMealType: String, CaseIterable, Identifiable {
-        case breakfast = "Breakfast"
-        case dinner = "Dinner"
-        case lunch = "Lunch"
-        case teatime = "Teatime"
-        case snack = "Snack"
-        case none = ""
-        var id: Self { self }
-    }
-    
-    enum FilterDishType: String, CaseIterable, Identifiable {
-        case bread = "Bread"
-        case cereal = "Cereals"
-        case sweets = "Sweets"
-        case starter = "Starter"
-        case soup = "Soup"
-        case sandwiches = "Sandwiches"
-        case salad = "Salad"
-        case preserve = "Preserve"
-        case preps = "Preps"
-        case pancake = "Pancake"
-        case drinks = "Drinks"
-        case desserts = "Desserts"
-        case mainCourse = "Main%20course"
-        case none = ""
-        var id: Self { self }
-    }
-    
-    enum FilterCuisineType: String, CaseIterable, Identifiable {
-        case american = "American"
-        case asian = "Asian"
-        case british = "British"
-        case caribbean = "Caribbean"
-        case centralEurope = "CentralEurope"
-        case chinese = "Chinese"
-        case easternEurope = "EasternEurope"
-        case french = "French"
-        case indian = "Indian"
-        case italian = "Italian"
-        case japanese = "Japanese"
-        case kosher = "Kosher"
-        case mediterranean = "Mediterranean"
-        case mexican = "Mexican"
-        case middleEastern = "MiddleEastern"
-        case nordic = "Nordic"
-        case southAmerican = "SouthAmerican"
-        case southEastAsian = "SouthEastAsian"
-        case none = ""
-        var id: Self { self }
-    }
+enum FilterMealType: String, CaseIterable, Identifiable {
+    case breakfast = "Breakfast"
+    case dinner = "Dinner"
+    case lunch = "Lunch"
+    case teatime = "Teatime"
+    case snack = "Snack"
+    case none = ""
+    var id: Self { self }
+}
+
+enum FilterDishType: String, CaseIterable, Identifiable {
+    case bread = "Bread"
+    case cereal = "Cereals"
+    case sweets = "Sweets"
+    case starter = "Starter"
+    case soup = "Soup"
+    case sandwiches = "Sandwiches"
+    case salad = "Salad"
+    case preserve = "Preserve"
+    case preps = "Preps"
+    case pancake = "Pancake"
+    case drinks = "Drinks"
+    case desserts = "Desserts"
+    case mainCourse = "Main%20course"
+    case none = ""
+    var id: Self { self }
+}
+
+enum FilterCuisineType: String, CaseIterable, Identifiable {
+    case american = "American"
+    case asian = "Asian"
+    case british = "British"
+    case caribbean = "Caribbean"
+    case centralEurope = "CentralEurope"
+    case chinese = "Chinese"
+    case easternEurope = "EasternEurope"
+    case french = "French"
+    case indian = "Indian"
+    case italian = "Italian"
+    case japanese = "Japanese"
+    case kosher = "Kosher"
+    case mediterranean = "Mediterranean"
+    case mexican = "Mexican"
+    case middleEastern = "MiddleEastern"
+    case nordic = "Nordic"
+    case southAmerican = "SouthAmerican"
+    case southEastAsian = "SouthEastAsian"
+    case none = ""
+    var id: Self { self }
+}
 
 
 struct RecipeSearchView: View {
@@ -65,11 +65,8 @@ struct RecipeSearchView: View {
     @ObservedObject var appViewModel = AppViewModel()
     var size: CGSize
     var filterToggle: Bool
-
     @State  var selectedMealType: FilterMealType
-    
     @State  var selectedCuisine: FilterCuisineType
-    
     @State  var selectedDish: FilterDishType
     
     var body: some View {
@@ -126,16 +123,10 @@ struct RecipeSearchView: View {
                 }
                 .font(.caption)
             }
-            
-            
-            CallBodyView(appViewModel: appViewModel, size: size, searchQuery: searchQuery, selectedMealType: $selectedMealType, selectedCuisine: $selectedCuisine, selectedDish: $selectedDish)
-               // .offset(CGSize(width: 0.0, height: -75.0))
-                .frame(height: size.height*11/14)
-            
-            
-            
-        }.toolbar(.visible, for: ToolbarPlacement.tabBar)
 
+            CallBodyView(appViewModel: appViewModel, size: size, searchQuery: searchQuery, selectedMealType: $selectedMealType, selectedCuisine: $selectedCuisine, selectedDish: $selectedDish)
+                .frame(height: size.height*11/14)
+        }.toolbar(.visible, for: ToolbarPlacement.tabBar)
     }
 }
 

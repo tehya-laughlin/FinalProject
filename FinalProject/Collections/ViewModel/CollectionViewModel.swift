@@ -11,7 +11,7 @@ import SwiftData
 class CollectionViewModel: ObservableObject {
     
     @Published var oneRecipe = RecipeInfo()
-   
+    
     func getOneRecipeByUrl(url1: String) async -> () {
         do {
             guard let url = URL(string: url1) else {

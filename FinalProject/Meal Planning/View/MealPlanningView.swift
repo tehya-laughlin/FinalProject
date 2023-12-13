@@ -10,9 +10,7 @@ import SwiftData
 
 struct MealPlanningView: View {
     @Environment(\.modelContext) var modelContext
-    
     @State private var mealPlanActivated = UserDefaults.standard.bool(forKey: "mealPlanActive")
-    
     var size: CGSize
     
     var body: some View {
@@ -27,13 +25,12 @@ struct MealPlanningView: View {
                         Image("Calendar")
                             .resizable()
                             .scaleEffect(CGSize(width: 0.7, height: 0.9))
-                       
+                        
                         Spacer()
                     }
-                    
                 }
                 WeekPlanView(size: size)
-                   
+                
             }
             .navigationTitle("Meal Plan")
             .toolbar {
@@ -56,10 +53,7 @@ struct MealPlanningView: View {
                     }
                     .labelStyle(.titleAndIcon)
                 }
-                
             }
-            
-            
         }
     }
     

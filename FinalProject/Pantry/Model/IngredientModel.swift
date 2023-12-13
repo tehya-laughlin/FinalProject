@@ -23,8 +23,6 @@ struct IngredientQueryBody: Codable {
     
 }
 
-
-
 class IngredientModel: Codable, Identifiable {
     
     var food: IngredientItem
@@ -35,7 +33,6 @@ class IngredientModel: Codable, Identifiable {
     }
     
 }
-
 
 class IngredientItem: Codable, Identifiable {
     
@@ -51,5 +48,5 @@ class IngredientItem: Codable, Identifiable {
     }
     
 }
-  
+
 

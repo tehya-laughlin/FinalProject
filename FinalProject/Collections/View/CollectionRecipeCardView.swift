@@ -14,19 +14,15 @@ struct CollectionRecipeCardView: View {
     
     var body: some View {
         ZStack{
-            
             Rectangle()
                 .frame(width:size.width * 0.8, height:96)
                 .foregroundColor(.white)
                 
-            
             HStack{
                 AsyncImage(url: URL(string: recipe.imageLink))
                     .frame(width: size.width*0.4, height: 96)
                     .clipped()
-                
-            
-                
+
                 VStack{
                     Text("\(recipe.label)")
                         .font(.headline)
@@ -41,9 +37,7 @@ struct CollectionRecipeCardView: View {
         .background(.white)
         .cornerRadius(15)
         .shadow(radius: 5)
-        .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 0))
-        
-        
-        
+        .padding(EdgeInsets(top: 0, leading: 10, bottom: 8, trailing: 0))
+
     }
 }

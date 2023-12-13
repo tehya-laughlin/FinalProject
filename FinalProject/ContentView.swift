@@ -12,7 +12,7 @@ struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     
     
-
+    
     var body: some View {
         GeometryReader{ geometry in
             
@@ -29,16 +29,9 @@ struct ContentView: View {
                 PantryView(size: geometry.size).tabItem{
                     Label("Shopping List", systemImage: "cart.fill")
                 }
-                
             }
         }
-        
-        
-            
     }
-        
 }
 
-#Preview {
-    ContentView()
-}
+

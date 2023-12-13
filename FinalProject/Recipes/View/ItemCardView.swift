@@ -31,10 +31,9 @@ struct ItemCardView: View {
                     .frame(width: size.width/4, height: size.width/4)
                     .cornerRadius(5)
             }
-            
-            
-                    Text(typeName)
-                        .font(.caption)
+
+            Text(typeName)
+                .font(.caption)
         }
         .padding(.leading, 10)
     }

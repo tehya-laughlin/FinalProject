@@ -17,7 +17,6 @@ struct InPantryView: View {
     var body: some View {
         NavigationView{
             VStack{
-                
                 if(ingredients.isEmpty){
                     VStack{
                         Text("Your shopping list is empty")
@@ -28,12 +27,13 @@ struct InPantryView: View {
                     }
                     .padding(.top, 64)
                 }
+                
                 List{
                     ForEach(ingredients){
                         ingredient in
                         ZStack{
                             RoundedRectangle(cornerRadius: 10.0)
-                                            .fill(Color("Background"))
+                                .fill(Color("Background"))
                             HStack{
                                 Text("\(ingredient.food)")
                                     .padding(.leading, 10)
@@ -43,13 +43,9 @@ struct InPantryView: View {
                     }
                     .onDelete(perform: deleteIngredients)
                     .listRowSeparator(.hidden)
-                    
                 }
                 .listStyle(.plain)
                 .padding(.top, 20)
-                
-                
-                
             }
         }
     }
@@ -60,7 +56,6 @@ struct InPantryView: View {
             modelContext.delete(ingredient)
         }
     }
-    
 }
 
 

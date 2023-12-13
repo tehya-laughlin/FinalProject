@@ -32,8 +32,6 @@ struct WeekPlanView: View {
             .listStyle(.plain)
             
         }
- 
-        
     }
 }
 
