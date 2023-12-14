@@ -12,23 +12,31 @@ struct AllCollectionsView: View {
     
     @State var isNewCollectionSelected = false
     
+    @Environment(\.modelContext) private var context
+    @State private var path = [CollectionItem]()
+    
     var body: some View {
         
-        NavigationStack{
+        NavigationStack(path: $path){
             CollectionListView()
                 .navigationTitle("Collections")
                 .toolbar {
                     Button {
                         isNewCollectionSelected.toggle()
+                        saveNewItem()
                     } label: {
                         Image(systemName: "plus")
                     }
                     
                 }
-                .navigationDestination(isPresented: $isNewCollectionSelected) {
-                    CollectionCardView(collections: CollectionItem())
-                }
+                .navigationDestination(for: CollectionItem.self, destination: CollectionCardView.init)
         }
+    }
+    
+    func saveNewItem() {
+        let newCollectionItem = CollectionItem(name: "New")
+        context.insert(newCollectionItem)
+        path = [newCollectionItem]
     }
 }
 

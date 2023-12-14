@@ -9,11 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct CollectionCardView: View {
-    
-    @Environment(\.modelContext) private var context
-    @Environment(\.presentationMode) var presentationMode
-    @Bindable var collections: CollectionItem
-    @ObservedObject var collectionViewModel = CollectionViewModel()
+
+    @Bindable var collection: CollectionItem
     
     var body: some View {
         GeometryReader{ geometry in
@@ -22,13 +19,13 @@ struct CollectionCardView: View {
                     Text("Collection Name")
                         .frame(alignment: .leading)
                         .font(.subheadline)
-                    TextField("Name", text: $collections.name)
+                    TextField("Name", text: $collection.name)
                         .padding(EdgeInsets(top: 2, leading: 10, bottom: 2, trailing: 0))
                         .border(Color("Secondary"), width: 2)
                 }
                 
                 List{
-                    ForEach(collections.collection){ recipe in
+                    ForEach(collection.collection){ recipe in
                         VStack{
                             NavigationLink(destination: CollectionRecipeDetailView(size: geometry.size, recipe: recipe)) {
                                 CollectionRecipeCardView(recipe: recipe, size: geometry.size)
@@ -41,29 +38,14 @@ struct CollectionCardView: View {
                 
             }
             .padding()
-            .toolbar{
-                if !collections.name.isEmpty {
-                    Button {
-                        saveNewItem(collection: collections)
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Text("Save")
-                    }
-                    .buttonStyle(CustomButton())
-                    .padding()
-                }
-            }
+
         }
     }
     
-    func saveNewItem(collection: CollectionItem) {
-        let newCollectionItem = collection
-        context.insert(newCollectionItem)
-    }
     
     func deleteRecipe(_ indexSet: IndexSet) {
         for index in indexSet {
-            collections.collection.remove(at: index)
+            collection.collection.remove(at: index)
         }
     }
     

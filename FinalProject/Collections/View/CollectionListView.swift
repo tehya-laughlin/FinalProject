@@ -25,10 +25,7 @@ struct CollectionListView: View {
             
             List {
                 ForEach(collections) { collection in
-                    Button {
-                        selectedCollection = collection
-                        didSelectCollection.toggle()
-                    } label: {
+                    NavigationLink(value: collection){
                         ZStack{
                             Rectangle()
                                 .frame(width:size.width * 0.8, height:120)
@@ -55,7 +52,7 @@ struct CollectionListView: View {
                                         .padding(EdgeInsets(top: 20, leading: 20, bottom: 14, trailing: 10))
                                         .shadow(radius: 5)
                                 }
-
+                                
                                 VStack{
                                     Text("\(collection.name)")
                                         .font(.headline)
@@ -78,9 +75,6 @@ struct CollectionListView: View {
                     }
                 }.onDelete(perform: deleteCollections)
                     .listRowSeparator(.hidden)
-                    .navigationDestination(isPresented: $didSelectCollection) {
-                        CollectionCardView(collections: selectedCollection ?? CollectionItem())
-                    }
             }
             .listStyle(.plain)
         }
