@@ -119,6 +119,7 @@ struct CollectionRecipeDetailView: View {
         }.toolbar {
             ToolbarItem{
                 Button("Cook this"){
+                    print(recipe.recipeLinkRecipe)
                     openURL(URL(string: recipe.recipeLinkRecipe)!)
                 }
                 .buttonStyle(CustomButton())
