@@ -43,6 +43,10 @@ struct CallBodyView: View {
                 .errorAlert(error: $appViewModel.error)
             }
             
+            if(appViewModel.call.hits?.count == 0){
+                Text("Nothing is loaded, or there is a search error.")
+            }
+            
             List{
                 ForEach(appViewModel.call.hits ?? [RecipeInfo(recipe: Recipe())]) { recipeInfo in
                     NavigationLink(destination: RecipeDetailView(size:size,recipeInfo: recipeInfo)){

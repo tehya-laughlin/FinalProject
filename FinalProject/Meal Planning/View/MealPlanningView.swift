@@ -33,6 +33,7 @@ struct MealPlanningView: View {
                 
             }
             .navigationTitle("Meal Plan")
+            .navigationBarTitleDisplayMode(.automatic)
             .toolbar {
                 if(mealPlanActivated){
                     Button("Delete plan", systemImage: "trash"){
@@ -54,6 +55,7 @@ struct MealPlanningView: View {
                     .labelStyle(.titleAndIcon)
                 }
             }
+            .toolbarBackground(.thinMaterial, for: .navigationBar)
         }
     }
     
